@@ -1,0 +1,9 @@
+body {
+  color: var(--primary-dark);
+  font-family: sans-serif;
+}
+
+h1 {
+  color: var(--primary-dark);
+  font-family: 'Courgette', sans-serif;
+}

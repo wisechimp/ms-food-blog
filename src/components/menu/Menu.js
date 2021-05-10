@@ -1,20 +1,22 @@
-import React from 'react'
+import React from "react"
 
-import MenuLink from './MenuLink'
+import MenuLink from "./MenuLink"
+import { menuContainer } from "./menu.module.css"
 
 const Menu = ({ menuLinks }) => {
-    return (
-        <div>
-            {menuLinks.map((menuLink, i) => {
-                return (
-                    <MenuLink
-                        to={menuLinks[i].to}
-                        linkText={menuLinks[i].linktext}
-                    />
-                )
-            })}
-        </div>
-    )
+  return (
+    <div className={menuContainer}>
+      {menuLinks.map(menuLink => {
+        return (
+          <MenuLink
+            key={menuLink.key}
+            to={menuLink.to}
+            linkText={menuLink.linktext}
+          />
+        )
+      })}
+    </div>
+  )
 }
 
 export default Menu
