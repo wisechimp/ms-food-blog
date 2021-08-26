@@ -16,6 +16,7 @@ const Posts = ({ data }) => {
             author={node.frontmatter.author}
             date={node.frontmatter.date}
             slug={node.frontmatter.slug}
+            imageSrc={node.frontmatter.imageSrc}
           />
         )
       })}
@@ -32,10 +33,18 @@ export const postsQuery = graphql`
         node {
           frontmatter {
             slug
-            date
+            date(formatString: "Do MMMM YYYY")
             title
             description
             author
+            imageSrc {
+              childImageSharp {
+                  gatsbyImageData(
+                      width: 80
+                      placeholder: BLURRED
+                      formats: [AUTO, WEBP, AVIF])
+              }
+          }
           }
           id
         }
