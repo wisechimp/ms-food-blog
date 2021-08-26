@@ -6,9 +6,23 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Ma Sharp's Home Cooking`,
+    description: `Ma Sharp shares her cooking and eating tips`,
+    author: `Ma Sharp`,
+  },
   plugins: [
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-remark-images`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+          extensions: [`.mdx`, `.md`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,25 +31,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-page-creator",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages/posts`,
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 756,
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          default: require.resolve("./src/components/Layout.js"),
-        },
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
   ],
