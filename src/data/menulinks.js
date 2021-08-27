@@ -6,16 +6,11 @@ const menulinks = [
   },
   {
     key: "2",
-    to: "/posts",
-    linktext: "Posts",
-  },
-  {
-    key: "3",
     to: "/about",
     linktext: "About",
   },
   {
-    key: "4",
+    key: "3",
     to: "/contact",
     linktext: "Contact",
   },
