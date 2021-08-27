@@ -4,14 +4,19 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
+import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
   const { frontmatter, body } = data.mdx
   const image = getImage(frontmatter.imageSrc)
   return (
     <Layout title={frontmatter.title}>
-      <GatsbyImage image={image} alt="Yak yak" />
-      <MDXRenderer>{body}</MDXRenderer>
+      <div className={styles.blogpostImage}>
+        <GatsbyImage image={image} alt="Yak yak" />
+      </div>
+      <div className={styles.blogpostText}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
     </Layout>
   )
 }
