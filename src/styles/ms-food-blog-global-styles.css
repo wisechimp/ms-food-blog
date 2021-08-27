@@ -1,9 +1,12 @@
 body {
   color: var(--primary-dark);
   font-family: sans-serif;
+  margin: 0;
 }
 
 h1 {
   color: var(--primary-dark);
   font-family: 'Courgette', sans-serif;
+  padding: 0.5em;
+  margin-block: 0;
 }
