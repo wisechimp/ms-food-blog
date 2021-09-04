@@ -1,11 +1,12 @@
 const path = require("path")
+const _ = require('lodash')
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
-    const contentQuery = await graphql(`
-        query {
-            allMdx {
+    const queryData = await graphql(`
+        {
+            postsData: allMdx {
                 edges {
 					node {
 						frontmatter {
@@ -15,14 +16,19 @@ exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
             }
+			tagsData: allMdx(limit: 2000) {
+				group(field: frontmatter___tags) {
+					fieldValue
+				}
+			}
         }
     `)
-	
-	if (contentQuery.errors) {
-		throw contentQuery.errors
+
+	if (queryData.errors) {
+		throw queryData.errors
 	}
 
-	const blogposts = contentQuery.data.allMdx.edges
+	const blogposts = queryData.data.postsData.edges
 	blogposts.forEach(({ node }, index) => {
 		createPage({
 			path: node.frontmatter.slug,
@@ -30,6 +36,17 @@ exports.createPages = async ({ graphql, actions }) => {
 			context: {
 				id: node.id
 			}
+		})
+	})
+
+	const tagpages = queryData.data.tagsData.group
+	tagpages.forEach(tag => {
+		createPage({
+			path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+			component: path.resolve(`./src/templates/tagpostslist.js`),
+			context: {
+				tag: tag.fieldValue
+			},
 		})
 	})
 }
