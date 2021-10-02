@@ -18,3 +18,11 @@ h1 {
 .bulkText p {
   margin: 0 0 1em 0;
 }
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 996px) {
+	body {
+		max-width: 996px;
+		margin: auto;
+	}
+}
