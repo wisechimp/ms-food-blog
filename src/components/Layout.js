@@ -10,7 +10,6 @@ const Layout = ({ title, children, tagData }) => (
     <Header title={title} />
     <Menu menuLinks={menulinks} />
     <h1>{title}</h1>
-    <SummaryContentBanner props={tagData} />
     {children}
   </div>
 )
