@@ -2,7 +2,6 @@ import React from "react"
 
 import Header from "./Header"
 import Menu from "./menu/Menu"
-import SummaryContentBanner from "./summarycontentbanner/SummaryContentBanner"
 import menulinks from "../data/menulinks"
 
 const Layout = ({ title, children, tagData }) => (

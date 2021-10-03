@@ -1,0 +1,16 @@
+.tagsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  margin: auto;
+}
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 577px) {
+	.tagsContainer {
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: flex-start;
+    width: 150px;
+	}
+}

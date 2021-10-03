@@ -1,11 +1,14 @@
 import React from "react"
 
-const SummaryContentBanner = ({ data }) => {
-  console.log(data)
+import SummaryContentItem from "./SummaryContentItem"
+import * as styles from "./summarycontentbanner.module.css"
+
+const SummaryContentBanner = ({ tags }) => {
   return (
-    <div>
-      <p>2022</p>
-      <p>2021</p>
+    <div className={styles.tagsContainer}>
+      {tags.map((tag, i) => {
+        return <SummaryContentItem key={i} tag={tag} />
+      })}
     </div>
   )
 }
