@@ -1,6 +1,6 @@
 import React from "react"
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-import { FaInstagram } from 'react-icons/fa'
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { FaInstagram } from "react-icons/fa"
 
 import MenuLink from "./MenuLink"
 import { menuContainer } from "./menu.module.css"
@@ -17,7 +17,9 @@ const Menu = ({ menuLinks }) => {
           />
         )
       })}
-      <OutboundLink href="https://www.instagram.com/masharphomecooking"><FaInstagram /></OutboundLink>
+      <OutboundLink href="https://www.instagram.com/masharphomecooking">
+        <FaInstagram />
+      </OutboundLink>
     </div>
   )
 }

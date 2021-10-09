@@ -3,8 +3,8 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
- require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-          extensions: [`.mdx`, `.md`],
+        extensions: [`.mdx`, `.md`],
       },
     },
     {
@@ -43,15 +43,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [
-          process.env.GA_TRACKING_ID
-        ],
+        trackingId: process.env.GA_TRACKING_ID,
         gtagConfig: {
-          optimize_id: "OPT_CONTAINER_ID",
           anonymize_ip: true,
           cookie_expires: 0,
         },
-      }
-    }
+      },
+    },
   ],
 }
