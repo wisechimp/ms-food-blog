@@ -1,10 +1,11 @@
 import React from 'react'
 
 import Layout from '../components/Layout'
+import ContactForm from '../components/contactform/contactform'
 
 const Contact = () => (
     <Layout title="Contact">
-        <p>You can drop me a line here</p>
+        <ContactForm />
     </Layout>
 )
 

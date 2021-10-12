@@ -1,0 +1,27 @@
+.contactForm {
+  background-color: #f2f5f9;
+  border-radius: 0.5em;
+  display: inline-block;
+  max-width: 350px;
+  padding: 1em;
+  width: fit-content;
+}
+.formButton {
+  float: right;
+  margin-top: 1em;
+}
+.formInput {
+  padding-left: 0.5em;
+  width: 200px;
+}
+.formLabel {
+  display: inline-block;
+  margin-top: 0.25em;
+  margin-right: 0.25em;
+  text-align: right;
+  vertical-align: top;
+  width: 80px;
+}
+.formRow {
+  margin: 0.5em 0;
+}
