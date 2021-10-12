@@ -56,6 +56,7 @@ const ContactForm = () => {
         action="/thanks/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
         onSubmit={handleSubmit}
       >
         <noscript>
@@ -63,7 +64,7 @@ const ContactForm = () => {
         </noscript>
         <fieldset>
           <div>
-            <p class="hidden">
+            <p className={contactformStyles.hidden}>
               <label>
                 Don’t fill this out if you're human: <input name="bot-field" />
               </label>
