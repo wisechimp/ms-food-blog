@@ -17,7 +17,7 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
-      {userComments} !=null ?
+      {userComments} ?
       {userComments.map(comment => {
         return (
           <CommentCard
