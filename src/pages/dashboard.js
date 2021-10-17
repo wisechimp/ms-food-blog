@@ -24,7 +24,7 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
-      noModerationRequired ?
+      {noModerationRequired} ?
       <p>There are currently no comments requiring moderation. Well done!</p>:
       {userComments.map(comment => {
         return (
