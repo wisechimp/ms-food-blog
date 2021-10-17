@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import CommentCard from "../components/comments/CommentCard"
 
 const Dashboard = () => {
-  const [userComments, setUserComments] = useState("")
+  const [userComments, setUserComments] = useState(null)
 
   useEffect(() => {
     fetch("https://ms-food-blog.herokuapp.com/comments")
@@ -17,6 +17,7 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
+      {userComments} !=null ?
       {userComments.map(comment => {
         return (
           <CommentCard
@@ -27,6 +28,7 @@ const Dashboard = () => {
           />
         )
       })}
+      : <p>There are currently no comments requiring moderation. Well done!</p>
     </div>
   )
 }
