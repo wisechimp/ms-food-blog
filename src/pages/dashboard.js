@@ -4,19 +4,13 @@ import Layout from "../components/Layout"
 import CommentCard from "../components/comments/CommentCard"
 
 const Dashboard = () => {
-  const [noModerationRequired, setNoModerationRequired] = useState(true)
-  const [userComments, setUserComments] = useState(null)
+  const [userComments, setUserComments] = useState([])
 
   useEffect(() => {
-    fetch("https://ms-food-blog.herokuapp.com/comments")
+    fetch("http://localhost:3000/comments")
       .then(response => response.json())
       .then(comment => {
         setUserComments(comment)
-      })
-      .then(() => {
-        if (userComments.length >= 1) {
-          setNoModerationRequired(false)
-        }
       })
       .then(console.log(userComments))
   }, [])
@@ -24,7 +18,7 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
-      {noModerationRequired
+      {!userComments.length
       ? <p>There are currently no comments requiring moderation. Well done!</p>
       : <div>{userComments.map(comment => {
         return (
