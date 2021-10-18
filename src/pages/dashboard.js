@@ -24,9 +24,9 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
-      {noModerationRequired} ?
-      <p>There are currently no comments requiring moderation. Well done!</p>:
-      {userComments.map(comment => {
+      {noModerationRequired
+      ? <p>There are currently no comments requiring moderation. Well done!</p>
+      : <div>{userComments.map(comment => {
         return (
           <CommentCard
             key={comment.id}
@@ -35,7 +35,8 @@ const Dashboard = () => {
             commentText={comment.text}
           />
         )
-      })}
+      })}</div>
+      }
     </div>
   )
 }
