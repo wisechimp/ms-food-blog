@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [userComments, setUserComments] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/comments")
+    fetch("https://ms-food-blog.herokuapp.com/comments")
       .then(response => response.json())
       .then(comment => {
         setUserComments(comment)
