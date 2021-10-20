@@ -14,6 +14,11 @@ const menulinks = [
     to: "/contact",
     linktext: "Contact",
   },
+  {
+    key: "4",
+    to: "/account",
+    linktext: "Account",
+  }
 ]
 
 export default menulinks
