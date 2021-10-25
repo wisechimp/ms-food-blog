@@ -1,0 +1,19 @@
+.comment {
+    background: var(--primary-light);
+}
+
+.container {
+    background-color: var(--primary-contrast);
+}
+
+.container p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 0.5em;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

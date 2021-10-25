@@ -2,13 +2,13 @@ import React from "react"
 import { Router } from "@reach/router"
 import { Link } from "gatsby"
 
+import Dashboard from '../components/dashboard/dashboard'
 import { login, isAuthenticated, getProfile, logout} from '../utils/auth'
 
 const Home = ({ user }) => {
   console.log(user)
   return <p>Hi, {user.nickname ? user.nickname : "friend"}!</p>
 }
-const Dashboard = () => <p>Dash!</p>
 const UserDetails = () => <p>User Details</p>
 
 const Account = () => {

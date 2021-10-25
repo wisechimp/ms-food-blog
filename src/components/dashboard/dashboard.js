@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 
-import Layout from "../components/Layout"
-import CommentCard from "../components/comments/CommentCard"
+import Layout from "../Layout"
+import CommentCard from "../comments/CommentCard"
 
 const Dashboard = () => {
   const [userComments, setUserComments] = useState([])
 
   useEffect(() => {
-    fetch("https://ms-food-blog.herokuapp.com/comments")
+    fetch("http://localhost:3000/comments")
       .then(response => response.json())
       .then(comment => {
         setUserComments(comment)
@@ -24,7 +24,7 @@ const Dashboard = () => {
         return (
           <CommentCard
             key={comment.id}
-            commentUserName={comment.userName}
+            commentUserName={comment.username}
             commentDate={comment.date}
             commentText={comment.text}
           />
