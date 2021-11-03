@@ -15,7 +15,16 @@ module.exports = {
     author: `Ma Sharp`,
   },
   plugins: [
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 80,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-remark-images`,

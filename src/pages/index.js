@@ -40,11 +40,7 @@ export const postsQuery = graphql`
             author
             imageSrc {
               childImageSharp {
-                gatsbyImageData(
-                  width: 108
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
+                gatsbyImageData(width: 108)
               }
             }
           }
