@@ -40,7 +40,11 @@ export const postsQuery = graphql`
             author
             imageSrc {
               childImageSharp {
-                gatsbyImageData(width: 108)
+                gatsbyImageData(
+                  transformOptions: { fit: CONTAIN }
+                  width: 108
+                  backgroundColor: "#00000000"
+                )
               }
             }
           }
