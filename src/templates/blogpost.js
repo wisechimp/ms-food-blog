@@ -44,7 +44,11 @@ export const query = graphql`
         tags
         imageSrc {
           childImageSharp {
-            gatsbyImageData(width: 800)
+            gatsbyImageData(
+              transformOptions: { fit: CONTAIN }
+              width: 800
+              backgroundColor: "#00000000"
+            )
           }
         }
       }
