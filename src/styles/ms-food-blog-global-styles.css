@@ -11,6 +11,10 @@ h1 {
   margin-block: 0;
 }
 
+h3 {
+  font-family: 'Courgette', sans-serif;
+}
+
 .bulkText {
   padding: 0 1em;
 }
