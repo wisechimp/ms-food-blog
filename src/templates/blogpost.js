@@ -12,7 +12,7 @@ const Blogpost = ({ data }) => {
   const { frontmatter, body } = data.mdx
   const image = getImage(frontmatter.imageSrc)
   const slug = window.location.pathname.replace("/posts/", "")
-  const fetchApi = `http://localhost:3000/comments/${slug}`
+  const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
   console.log(fetchApi)
   const [postComments, setPostComments] = useState([])
 
