@@ -11,12 +11,13 @@ import * as styles from "./blogpost.module.css"
 const Blogpost = ({ data }) => {
   const { frontmatter, body } = data.mdx
   const image = getImage(frontmatter.imageSrc)
-  const slug = window.location.pathname.replace("/posts/", "")
-  const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
-  console.log(fetchApi)
+
   const [postComments, setPostComments] = useState([])
 
   useEffect(() => {
+    const slug = window.location.pathname.replace("/posts/", "")
+    const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
+    console.log(fetchApi)
     fetch(`${fetchApi}`)
       .then(response => response.json())
       .then(comment => {
