@@ -18,7 +18,7 @@ const Blogpost = ({ data }) => {
     const slug = window.location.pathname.replace("/posts/", "")
     const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
     console.log(fetchApi)
-    fetch(`${fetchApi}`)
+    fetch(fetchApi)
       .then(response => response.json())
       .then(comment => {
         setPostComments(comment)
