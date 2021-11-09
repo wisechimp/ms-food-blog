@@ -19,11 +19,7 @@ const Blogpost = ({ data }) => {
     const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
     console.log(fetchApi)
     fetch(fetchApi)
-      .then(response => response.json())
-      .then(comment => {
-        setPostComments(comment)
-      })
-      .then(console.log(postComments))
+      .then(async response => setPostComments(await response.json()))
   }, [])
 
   return (
