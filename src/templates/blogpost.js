@@ -16,7 +16,7 @@ const Blogpost = ({ data }) => {
 
   useEffect(() => {
     const slug = window.location.pathname.replace("/posts/", "")
-    const fetchApi = `https://ms-food-blog.herokuapp.com/comments/${slug}`
+    const fetchApi = `${process.env.BASE_URL}/comments/${slug}`
     console.log(fetchApi)
     fetch(fetchApi)
       .then(async response => setPostComments(await response.json()))
