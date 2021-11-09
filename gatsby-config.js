@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-remark-images`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
