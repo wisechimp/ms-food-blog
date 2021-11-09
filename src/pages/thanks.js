@@ -6,7 +6,7 @@ import * as thanksStyles from "./thanks.module.css"
 const Thanks = () => (
   <Layout pageTitle="Thanks!">
     <div className={thanksStyles.thanksContent}>
-      <h3>Thank you!</h3>
+      <h2>Thank you!</h2>
       <br />
       <p>Thank you for taking the time to contact Ma Sharp!</p>
       <br />

@@ -17,7 +17,7 @@ const Menu = ({ menuLinks }) => {
           />
         )
       })}
-      <OutboundLink href="https://www.instagram.com/masharphomecooking">
+      <OutboundLink href="https://www.instagram.com/masharphomecooking" aria-label="Instagram" >
         <FaInstagram />
       </OutboundLink>
     </div>

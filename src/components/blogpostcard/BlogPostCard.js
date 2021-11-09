@@ -8,7 +8,7 @@ const BlogPostCard = ({ title, description, date, author, slug, imageSrc }) => {
   return (
     <div className={cardStyles.card}>
       <div className={cardStyles.cardTitle}>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
       </div>
       <div className={cardStyles.cardBody}>
         <div className={cardStyles.cardText}>

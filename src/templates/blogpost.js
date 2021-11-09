@@ -40,7 +40,7 @@ const Blogpost = ({ data }) => {
         </div>
       </div>
       <div>
-        <h3>Comments:</h3>
+        <h2>Comments:</h2>
         {!postComments.length ? (
           <p>
             There are no comments yet. Signup or Login to join the conversation.
