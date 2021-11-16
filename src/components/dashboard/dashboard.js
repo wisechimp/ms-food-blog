@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import Layout from "../Layout"
-import CommentCard from "../comments/CommentCard"
+import CommentCard from "../commentscard/CommentCard"
 
 const Dashboard = () => {
   const [userComments, setUserComments] = useState([])
