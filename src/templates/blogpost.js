@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import SummaryContentBanner from "../components/summarycontentbanner/SummaryContentBanner"
-import CommentCard from "../components/comments/CommentCard"
+import CommentsList from '../components/commentslist/CommentsList'
 import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
   const { frontmatter, body } = data.mdx
   const image = getImage(frontmatter.imageSrc)
-
-  const [postComments, setPostComments] = useState([])
-
-  useEffect(() => {
-    const slug = window.location.pathname.replace("/posts/", "")
-    const fetchApi = `${process.env.BASE_URL}/comments/${slug}`
-    console.log(fetchApi)
-    fetch(fetchApi)
-      .then(async response => setPostComments(await response.json()))
-  }, [])
 
   return (
     <Layout title={frontmatter.title}>
@@ -41,24 +31,7 @@ const Blogpost = ({ data }) => {
       </div>
       <div>
         <h2>Comments:</h2>
-        {!postComments.length ? (
-          <p>
-            There are no comments yet. Signup or Login to join the conversation.
-          </p>
-        ) : (
-          <div>
-            {postComments.map(comment => {
-              return (
-                <CommentCard
-                  key={comment.id}
-                  commentUserName={comment.username}
-                  commentDate={comment.date}
-                  commentText={comment.text}
-                />
-              )
-            })}
-          </div>
-        )}
+        <CommentsList />
       </div>
     </Layout>
   )
@@ -72,6 +45,7 @@ export const query = graphql`
       body
       frontmatter {
         title
+        slug
         date(formatString: "Do MMMM YYYY")
         author
         tags
