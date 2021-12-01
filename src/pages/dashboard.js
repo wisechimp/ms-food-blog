@@ -6,6 +6,7 @@ import CommentCard from "../components/commentscard/CommentCard"
 
 const Dashboard = () => {
   const [userComments, setUserComments] = useState([])
+  const { user } = useAuth0()
 
   useEffect(() => {
     fetch("http://localhost:3000/comments")
@@ -19,6 +20,7 @@ const Dashboard = () => {
   return (
     <div>
       <Layout title="Admin Dashboard" />
+      <p>Hi {user.nickname}!</p>
       {!userComments.length ? (
         <p>There are currently no comments requiring moderation. Well done!</p>
       ) : (
