@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import SummaryContentBanner from "../components/summarycontentbanner/SummaryContentBanner"
-import CommentsList from '../components/commentslist/CommentsList'
+import CommentsList from "../components/commentslist/CommentsList"
 import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
@@ -29,10 +29,8 @@ const Blogpost = ({ data }) => {
           <SummaryContentBanner tags={frontmatter.tags} />
         </div>
       </div>
-      <div>
-        <h2>Comments:</h2>
-        <CommentsList />
-      </div>
+      <div>{/* <h2>Comments:</h2>
+        <CommentsList /> */}</div>
     </Layout>
   )
 }
