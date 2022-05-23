@@ -60,5 +60,15 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify-headers`,
+      options: {
+        headers: {
+          "/*": [
+            "Strict-Transport-Security: max-age=63072000; includeSubDomains; preload",
+          ],
+        },
+      },
+    },
   ],
 }
