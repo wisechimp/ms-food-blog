@@ -4,7 +4,7 @@ import { getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import BlogPostCard from "../components/blogpostcard/BlogPostCard"
-import TagsWordcloud from "../components/tagsWordCloud/TagsWordCloud"
+import TagsWordcloud from "../components/tagsWordCloud/TagsWordcloud"
 
 const Posts = ({ data }) => {
   const [wordCloudWidth, setWordCloudWidth] = useState(700)
