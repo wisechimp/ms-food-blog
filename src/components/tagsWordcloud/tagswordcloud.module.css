@@ -1,0 +1,12 @@
+.tagsWordcloud {
+  background: var(--primary-contrast);
+  height: 300px;
+  width: 100%;
+}
+
+.tagsWordcloud svg {
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  max-height: 300px;
+}
