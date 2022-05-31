@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
+import Loadable from "react-loadable"
 
 import Layout from "../components/Layout"
 import BlogPostCard from "../components/blogpostcard/BlogPostCard"
-import TagsWordcloud from "../components/tagsWordcloud/TagsWordcloud"
+
+// Placeholder while the Wordcloud is loaded in the browser
+const loading = () => <div>Loading blog tags...</div>
+// Enabling the loading of the Wordcloud at run time
+const TagsWordcloud = Loadable({
+  loader: () => import("../components/tagsWordcloud/TagsWordcloud"),
+  loading: loading,
+})
 
 const Posts = ({ data }) => {
   const [wordCloudWidth, setWordCloudWidth] = useState(700)
