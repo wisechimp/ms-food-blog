@@ -5,9 +5,10 @@ import Loadable from "react-loadable"
 
 import Layout from "../components/Layout"
 import BlogPostCard from "../components/blogpostcard/BlogPostCard"
+import LoadingSpinner from "../components/tagsWordcloud/LoadingSpinner"
 
 // Placeholder while the Wordcloud is loaded in the browser
-const loading = () => <div>Loading blog tags...</div>
+const loading = () => <LoadingSpinner />
 // Enabling the loading of the Wordcloud at run time
 const TagsWordcloud = Loadable({
   loader: () => import("../components/tagsWordcloud/TagsWordcloud"),
