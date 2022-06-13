@@ -53,7 +53,6 @@ const Posts = ({ data }) => {
 
   return (
     <Layout title="Posts">
-      <LoadingSpinner />
       <TagsWordcloud
         data={generateWordCloudObject()}
         height={300}
