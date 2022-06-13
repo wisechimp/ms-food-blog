@@ -2,7 +2,7 @@
   background-color: var(--primary-contrast);
   border-radius: 25px;
   height: fit-content;
-  margin-left: 0.5em;
+  margin: 0.5em;
   padding: 0.5em;
   width: fit-content;
 }
