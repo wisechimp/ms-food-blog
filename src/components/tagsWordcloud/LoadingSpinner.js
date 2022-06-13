@@ -5,7 +5,9 @@ import * as styles from "./tagswordcloud.module.css"
 const LoadingSpinner = () => {
   return (
     <div className={styles.tagsWordcloud}>
-      <p>The tags are loading...</p>
+      <div className={styles.tagsWordcloudLoading}>
+        <p>Loading...</p>
+      </div>
     </div>
   )
 }
