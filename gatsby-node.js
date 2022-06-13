@@ -1,5 +1,4 @@
 const path = require("path")
-const _ = require("lodash")
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
@@ -52,7 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagpages = queryData.data.tagsData.group
   tagpages.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/tags/${tag.fieldValue.replace(/ /g, "-")}/`,
       component: path.resolve(`./src/templates/tagpostslist.js`),
       context: {
         tag: tag.fieldValue,

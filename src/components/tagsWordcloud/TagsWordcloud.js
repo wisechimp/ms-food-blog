@@ -16,7 +16,7 @@ const TagsWordcloud = ({ data, height, width }) => {
           width={width}
           fontSize={word => word.value * 20}
           onWordClick={(event, word) => {
-            navigate(`/tags/${word.text}/`)
+            navigate(`/tags/${word.text.replace(/ /g, "-")}/`)
           }}
         />
       </div>

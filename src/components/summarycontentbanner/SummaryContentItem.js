@@ -5,7 +5,7 @@ import * as styles from "./summarycontentitem.module.css"
 
 const SummaryContentItem = ({ tag }) => (
   <div className={styles.tagStyle}>
-    <Link to={`/tags/${tag}`}>{tag}</Link>
+    <Link to={`/tags/${tag.replace(/ /g, "-")}`}>{tag}</Link>
   </div>
 )
 
