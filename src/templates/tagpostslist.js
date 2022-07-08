@@ -1,7 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
+import BlogPostCard from "../components/blogpostcard/BlogPostCard"
 
 const TagsPostTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -11,16 +13,21 @@ const TagsPostTemplate = ({ pageContext, data }) => {
   } tagged with "${tag}"`
   return (
     <Layout title={tagHeader}>
-      <ul>
-        {edges.map(({ node }) => {
-          const { title, slug } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      {edges.map(({ node }) => {
+        const { title, slug, author, date, imageSrc } = node.frontmatter
+        const imageData = getImage(imageSrc)
+        return (
+          <BlogPostCard
+            key={node.id}
+            title={title}
+            description={node.excerpt}
+            author={author}
+            date={date}
+            slug={slug}
+            imageSrc={imageData}
+          />
+        )
+      })}
     </Layout>
   )
 }
@@ -40,7 +47,20 @@ export const tagsQuery = graphql`
           frontmatter {
             title
             slug
+            author
+            date(formatString: "Do MMMM YYYY")
+            imageSrc {
+              childImageSharp {
+                gatsbyImageData(
+                  transformOptions: { fit: CONTAIN }
+                  width: 108
+                  backgroundColor: "#00000000"
+                )
+              }
+            }
           }
+          id
+          excerpt
         }
       }
     }
