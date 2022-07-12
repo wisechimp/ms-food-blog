@@ -59,9 +59,15 @@ const Posts = ({ data }) => {
         width={wordCloudWidth}
       />
       {data.allMdx.edges.map(({ node }) => {
-        const { id, fields, frontmatter } = node
-        const { excerpt_html } = fields
-        const { title, author, date, slug, imageSrc } = frontmatter
+        const { id, excerpt, frontmatter } = node
+        const {
+          title,
+          author,
+          date,
+          slug,
+          imageSrc,
+          excerpt_html,
+        } = frontmatter
         const imageData = getImage(imageSrc)
         return (
           <BlogPostCard
@@ -72,7 +78,11 @@ const Posts = ({ data }) => {
             slug={slug}
             imageSrc={imageData}
           >
-            <div dangerouslySetInnerHTML={{ __html: excerpt_html }} />
+            {excerpt_html ? (
+              <div dangerouslySetInnerHTML={{ __html: excerpt_html }} />
+            ) : (
+              excerpt
+            )}
           </BlogPostCard>
         )
       })}
@@ -92,6 +102,7 @@ export const postsQuery = graphql`
             date(formatString: "Do MMMM YYYY")
             title
             author
+            excerpt_html
             tags
             imageSrc {
               childImageSharp {
@@ -104,9 +115,7 @@ export const postsQuery = graphql`
             }
           }
           id
-          fields {
-            excerpt_html
-          }
+          excerpt
         }
       }
     }

@@ -14,18 +14,31 @@ const TagsPostTemplate = ({ pageContext, data }) => {
   return (
     <Layout title={tagHeader}>
       {edges.map(({ node }) => {
-        const { title, slug, author, date, imageSrc } = node.frontmatter
+        const { id, excerpt, frontmatter } = node
+        const {
+          title,
+          slug,
+          author,
+          date,
+          imageSrc,
+          excerpt_html,
+        } = frontmatter
         const imageData = getImage(imageSrc)
         return (
           <BlogPostCard
-            key={node.id}
+            key={id}
             title={title}
-            description={node.excerpt}
             author={author}
             date={date}
             slug={slug}
             imageSrc={imageData}
-          />
+          >
+            {excerpt_html ? (
+              <div dangerouslySetInnerHTML={{ __html: excerpt_html }} />
+            ) : (
+              excerpt
+            )}
+          </BlogPostCard>
         )
       })}
     </Layout>
@@ -48,6 +61,7 @@ export const tagsQuery = graphql`
             title
             slug
             author
+            excerpt_html
             date(formatString: "Do MMMM YYYY")
             imageSrc {
               childImageSharp {
