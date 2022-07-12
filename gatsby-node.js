@@ -1,4 +1,31 @@
 const path = require("path")
+const showdown = require("showdown")
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  const fm = "---"
+  const prune = 100
+  if (node.internal.type === `Mdx`) {
+    let content = node.internal.content
+    let fmStart = content.indexOf(fm)
+    let fmEnd = content.indexOf(fm, fmStart + 1) + fm.length
+    let excerptEnd = Math.min(content.length, fmEnd + prune)
+    let excerpt = content.substring(fmEnd, excerptEnd) + "..."
+    excerpt = excerpt.trim()
+    console.log(excerpt)
+
+    let converter = new showdown.Converter()
+    let excerptHtml = converter.makeHtml(excerpt)
+    console.log(excerptHtml)
+
+    createNodeField({
+      node,
+      name: `excerpt_html`,
+      value: excerptHtml,
+    })
+  }
+}
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions

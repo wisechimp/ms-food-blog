@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import LinkButton from "../linkbutton/LinkButton"
 import * as cardStyles from "./blogpostcard.module.css"
 
-const BlogPostCard = ({ title, description, date, author, slug, imageSrc }) => {
+const BlogPostCard = ({ title, children, date, author, slug, imageSrc }) => {
   return (
     <div className={cardStyles.card}>
       <div className={cardStyles.cardTitle}>
@@ -15,7 +15,7 @@ const BlogPostCard = ({ title, description, date, author, slug, imageSrc }) => {
           <p>
             Written by {author} on {date}
           </p>
-          <p>{description}</p>
+          {children}
         </div>
         <div className={cardStyles.cardThumb}>
           <GatsbyImage image={imageSrc} alt="" />
