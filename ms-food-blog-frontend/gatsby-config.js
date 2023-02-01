@@ -25,6 +25,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `z4j35np0`,
+        dataset: `blog`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-remark-images`,
