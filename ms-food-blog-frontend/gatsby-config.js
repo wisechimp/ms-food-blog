@@ -29,7 +29,7 @@ module.exports = {
       resolve: `gatsby-source-sanity`,
       options: {
         projectId: `z4j35np0`,
-        dataset: `blog`,
+        dataset: `production`,
       },
     },
     `gatsby-transformer-sharp`,
