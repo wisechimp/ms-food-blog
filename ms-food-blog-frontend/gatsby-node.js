@@ -15,18 +15,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const queryData = await graphql(`
     {
-      postsData: allMdx {
+      postsData: allSanityPost {
         edges {
           node {
-            frontmatter {
-              slug
+            slug {
+              current
             }
             id
           }
         }
       }
-      tagsData: allMdx(limit: 2000) {
-        group(field: frontmatter___tags) {
+      tagsData: allSanityTag(limit: 2000) {
+        group(field: title) {
           fieldValue
         }
       }
@@ -39,8 +39,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogposts = queryData.data.postsData.edges
   blogposts.forEach(({ node }, index) => {
+    const postPath = `posts/${node.slug.current}`
     createPage({
-      path: node.frontmatter.slug,
+      path: postPath,
       component: path.resolve(`./src/templates/blogpost.js`),
       context: {
         id: node.id,
