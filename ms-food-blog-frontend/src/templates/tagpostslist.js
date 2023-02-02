@@ -7,37 +7,35 @@ import BlogPostCard from "../components/blogpostcard/BlogPostCard"
 
 const TagsPostTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMdx
+  const { edges, totalCount } = data.allSanityPost
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
+
+  console.log(edges)
   return (
     <Layout title={tagHeader}>
       {edges.map(({ node }) => {
-        const { id, excerpt, frontmatter } = node
         const {
+          id,
           title,
+          excerpt,
           slug,
           author,
-          date,
-          imageSrc,
-          excerpt_html,
-        } = frontmatter
-        const imageData = getImage(imageSrc)
+          mainImage,
+          publishedAt,
+        } = node
+        const imageData = getImage(mainImage.asset)
         return (
           <BlogPostCard
             key={id}
             title={title}
-            author={author}
-            date={date}
-            slug={slug}
+            author={author.name}
+            date={publishedAt}
+            slug={slug.current}
             imageSrc={imageData}
           >
-            {excerpt_html ? (
-              <div dangerouslySetInnerHTML={{ __html: excerpt_html }} />
-            ) : (
-              excerpt
-            )}
+            {excerpt}
           </BlogPostCard>
         )
       })}
@@ -49,28 +47,25 @@ export default TagsPostTemplate
 
 export const tagsQuery = graphql`
   query($tag: String) {
-    allMdx(
+    allSanityPost(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { tags: { elemMatch: { title: { in: [$tag] } } } }
     ) {
       totalCount
       edges {
         node {
-          frontmatter {
-            title
-            slug
-            author
-            excerpt_html
-            date(formatString: "Do MMMM YYYY")
-            imageSrc {
-              childImageSharp {
-                gatsbyImageData(
-                  transformOptions: { fit: CONTAIN }
-                  width: 108
-                  backgroundColor: "#00000000"
-                )
-              }
+          title
+          slug {
+            current
+          }
+          author {
+            name
+          }
+          publishedAt(formatString: "Do MMMM YYYY")
+          mainImage {
+            asset {
+              gatsbyImageData(width: 108, backgroundColor: "#00000000")
             }
           }
           id

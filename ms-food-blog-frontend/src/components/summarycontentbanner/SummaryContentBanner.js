@@ -7,7 +7,7 @@ const SummaryContentBanner = ({ tags }) => {
   return (
     <div className={styles.tagsContainer}>
       {tags.map((tag, i) => {
-        return <SummaryContentItem key={i} tag={tag} />
+        return <SummaryContentItem key={i} tag={tag.title} />
       })}
     </div>
   )

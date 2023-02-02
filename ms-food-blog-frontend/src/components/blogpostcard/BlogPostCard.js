@@ -22,7 +22,7 @@ const BlogPostCard = ({ title, children, date, author, slug, imageSrc }) => {
         </div>
       </div>
       <div className={cardStyles.cardButton}>
-        <LinkButton target={slug} text="Read More..." />
+        <LinkButton target={`/posts/${slug}`} text="Read More..." />
       </div>
     </div>
   )

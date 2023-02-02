@@ -1,40 +1,38 @@
 import React from "react"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import BlockContent from "@sanity/block-content-to-react"
 
 import Layout from "../components/Layout"
 import SummaryContentBanner from "../components/summarycontentbanner/SummaryContentBanner"
-import BlogEmbeddedImage from "../components/blogEmbeddedImage/BlogEmbeddedImage"
 import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
-  const { frontmatter, body } = data.mdx
-  const image = getImage(frontmatter.imageSrc)
-  const components = {
-    BlogEmbeddedImage,
-  }
+  const {
+    _rawBody,
+    title,
+    publishedAt,
+    author,
+    tags,
+    mainImage,
+  } = data.sanityPost
+  const image = getImage(mainImage.asset)
 
   return (
-    <Layout title={frontmatter.title}>
+    <Layout title={title}>
       <div className={styles.blogpostMetadata}>
-        <p>Author: {frontmatter.author}</p>
-        <p>Posted on: {frontmatter.date}</p>
+        <p>Author: {author.name}</p>
+        <p>Posted on: {publishedAt}</p>
       </div>
       <div className={styles.blogpostImage}>
         <GatsbyImage image={image} alt="Yak yak" />
       </div>
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
-          <MDXProvider components={components}>
-            <MDXRenderer localImages={frontmatter.embeddedImageSrc}>
-              {body}
-            </MDXRenderer>
-          </MDXProvider>
+          <BlockContent blocks={_rawBody} />
         </div>
         <div className={styles.blogpostTagBox}>
-          <SummaryContentBanner tags={frontmatter.tags} />
+          <SummaryContentBanner tags={tags} />
         </div>
       </div>
       <div>{/* <h2>Comments:</h2>
@@ -47,31 +45,23 @@ export default Blogpost
 
 export const query = graphql`
   query PostsById($id: String!) {
-    mdx(id: { eq: $id }) {
-      body
-      frontmatter {
+    sanityPost(id: { eq: $id }) {
+      _rawBody(resolveReferences: { maxDepth: 10 })
+      title
+      publishedAt(formatString: "Do MMMM YYYY")
+      author {
+        name
+      }
+      tags {
         title
-        slug
-        date(formatString: "Do MMMM YYYY")
-        author
-        tags
-        imageSrc {
-          childImageSharp {
-            gatsbyImageData(
-              transformOptions: { fit: CONTAIN }
-              width: 800
-              backgroundColor: "#00000000"
-            )
-          }
-        }
-        embeddedImageSrc {
-          childImageSharp {
-            gatsbyImageData(
-              transformOptions: { fit: CONTAIN }
-              width: 800
-              backgroundColor: "#00000000"
-            )
-          }
+      }
+      mainImage {
+        asset {
+          gatsbyImageData(
+            placeholder: BLURRED
+            width: 800
+            backgroundColor: "#00000000"
+          )
         }
       }
     }
