@@ -30,6 +30,7 @@ module.exports = {
       options: {
         projectId: `z4j35np0`,
         dataset: `production`,
+        watchMode: true,
       },
     },
     `gatsby-transformer-sharp`,
