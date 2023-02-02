@@ -20,9 +20,9 @@ const Posts = ({ data }) => {
 
   const extractTags = () => {
     const extractedTags = []
-    data.allMdx.edges.forEach(({ node }) => {
-      node.frontmatter.tags.forEach(tag => {
-        extractedTags.push(tag)
+    data.allSanityPost.edges.forEach(({ node }) => {
+      node.tags.forEach(tag => {
+        extractedTags.push(tag.title)
       })
     })
     return extractedTags
@@ -58,31 +58,27 @@ const Posts = ({ data }) => {
         height={300}
         width={wordCloudWidth}
       />
-      {data.allMdx.edges.map(({ node }) => {
-        const { id, excerpt, frontmatter } = node
+      {data.allSanityPost.edges.map(({ node }) => {
         const {
+          id,
           title,
-          author,
-          date,
+          excerpt,
+          publishedAt,
           slug,
-          imageSrc,
-          excerpt_html,
-        } = frontmatter
-        const imageData = getImage(imageSrc)
+          author,
+          mainImage,
+        } = node
+        const imageData = getImage(mainImage.asset)
         return (
           <BlogPostCard
             key={id}
             title={title}
-            author={author}
-            date={date}
-            slug={slug}
+            author={author.name}
+            date={publishedAt}
+            slug={slug.current}
             imageSrc={imageData}
           >
-            {excerpt_html ? (
-              <div dangerouslySetInnerHTML={{ __html: excerpt_html }} />
-            ) : (
-              excerpt
-            )}
+            {excerpt}
           </BlogPostCard>
         )
       })}
@@ -94,28 +90,27 @@ export default Posts
 
 export const postsQuery = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allSanityPost(sort: { fields: publishedAt, order: DESC }) {
       edges {
         node {
-          frontmatter {
-            slug
-            date(formatString: "Do MMMM YYYY")
+          slug {
+            current
+          }
+          publishedAt(formatString: "Do MMMM YYYY")
+          title
+          author {
+            name
+          }
+          excerpt
+          tags {
             title
-            author
-            excerpt_html
-            tags
-            imageSrc {
-              childImageSharp {
-                gatsbyImageData(
-                  transformOptions: { fit: CONTAIN }
-                  width: 108
-                  backgroundColor: "#00000000"
-                )
-              }
+          }
+          mainImage {
+            asset {
+              gatsbyImageData(width: 108, backgroundColor: "#00000000")
             }
           }
           id
-          excerpt
         }
       }
     }
