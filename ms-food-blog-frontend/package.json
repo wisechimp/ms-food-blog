@@ -16,7 +16,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@fontsource/courgette": "^4.3.0",
-    "@sanity/block-content-to-react": "^3.0.0",
+    "@portabletext/react": "^2.0.1",
     "gatsby": "^4.16.0",
     "gatsby-cli": "^4.16.0",
     "gatsby-plugin-google-gtag": "^4.16.0",
