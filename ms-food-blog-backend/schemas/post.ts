@@ -33,23 +33,7 @@ export default defineType({
     defineField({
       name: 'mainImageData',
       title: 'Main image',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'mainImage',
-          title: 'Image',
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-        }),
-        defineField({
-          name: 'altText',
-          title: 'Alternative text',
-          description: 'This is required for people who rely on screen readers and SEO.',
-          type: 'string',
-        }),
-      ],
+      type: 'mainImageObject',
     }),
     defineField({
       name: 'tags',
