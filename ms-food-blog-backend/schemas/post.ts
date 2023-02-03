@@ -31,12 +31,25 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'mainImage',
+      name: 'mainImageData',
       title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'mainImage',
+          title: 'Image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        }),
+        defineField({
+          name: 'altText',
+          title: 'Alternative text',
+          description: 'This is required for people who rely on screen readers and SEO.',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'tags',
@@ -60,7 +73,7 @@ export default defineType({
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'mainImageData.mainImage',
     },
     prepare(selection) {
       const {author} = selection
