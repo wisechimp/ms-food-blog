@@ -66,8 +66,9 @@ const Posts = ({ data }) => {
           publishedAt,
           slug,
           author,
-          mainImage,
+          mainImageData,
         } = node
+        const { altText, mainImage } = mainImageData
         const imageData = getImage(mainImage.asset)
         return (
           <BlogPostCard
@@ -77,6 +78,7 @@ const Posts = ({ data }) => {
             date={publishedAt}
             slug={slug.current}
             imageSrc={imageData}
+            imageAltText={altText}
           >
             {excerpt}
           </BlogPostCard>
@@ -105,9 +107,12 @@ export const postsQuery = graphql`
           tags {
             title
           }
-          mainImage {
-            asset {
-              gatsbyImageData(width: 108, backgroundColor: "#00000000")
+          mainImageData {
+            altText
+            mainImage {
+              asset {
+                gatsbyImageData(width: 108, backgroundColor: "#00000000")
+              }
             }
           }
           id
