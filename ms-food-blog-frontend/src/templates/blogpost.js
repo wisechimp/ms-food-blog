@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import BlockContent from "@sanity/block-content-to-react"
+import { PortableText } from "@portabletext/react"
 
 import Layout from "../components/Layout"
+import CustomPortableTextComponents from "../components/customPortableTextComponents/CustomPortableTextComponents"
 import SummaryContentBanner from "../components/summarycontentbanner/SummaryContentBanner"
 import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
+  console.log(data)
   const {
     _rawBody,
     title,
@@ -29,7 +31,10 @@ const Blogpost = ({ data }) => {
       </div>
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
-          <BlockContent blocks={_rawBody} />
+          <PortableText
+            value={_rawBody}
+            components={CustomPortableTextComponents}
+          />
         </div>
         <div className={styles.blogpostTagBox}>
           <SummaryContentBanner tags={tags} />
