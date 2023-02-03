@@ -5,8 +5,6 @@ import { navigate } from "gatsby"
 import * as styles from "./tagswordcloud.module.css"
 
 const TagsWordcloud = ({ data, height, width }) => {
-  console.log(data)
-
   return (
     <div>
       <div className={styles.tagsWordcloud}>
