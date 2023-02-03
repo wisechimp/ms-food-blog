@@ -4,13 +4,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 
 const About = ({ data }) => {
-  console.log(data.sanityAuthor)
   const { id, bio } = data.sanityAuthor
   return (
     <Layout title="About Me">
       <div className="bulkText">
         {bio.map(({ children }, i) => {
-          console.log(children[0].text)
           return <p key={`${id} + ${i}`}>{children[0].text}</p>
         })}
       </div>

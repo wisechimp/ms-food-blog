@@ -9,7 +9,6 @@ import SummaryContentBanner from "../components/summarycontentbanner/SummaryCont
 import * as styles from "./blogpost.module.css"
 
 const Blogpost = ({ data }) => {
-  console.log(data)
   const {
     _rawBody,
     title,
