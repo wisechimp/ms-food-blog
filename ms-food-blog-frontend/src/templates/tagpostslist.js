@@ -8,6 +8,7 @@ import BlogPostCard from "../components/blogpostcard/BlogPostCard"
 const TagsPostTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allSanityPost
+  const { description } = data.sanityTag
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
@@ -15,6 +16,7 @@ const TagsPostTemplate = ({ pageContext, data }) => {
   console.log(edges)
   return (
     <Layout title={tagHeader}>
+      <p>{description}</p>
       {edges.map(({ node }) => {
         const {
           id,
@@ -77,6 +79,9 @@ export const tagsQuery = graphql`
           excerpt
         }
       }
+    }
+    sanityTag(title: { eq: $tag }) {
+      description
     }
   }
 `
