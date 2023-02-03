@@ -15,8 +15,9 @@ const Blogpost = ({ data }) => {
     publishedAt,
     author,
     tags,
-    mainImage,
+    mainImageData,
   } = data.sanityPost
+  const { mainImage, altText } = mainImageData
   const image = getImage(mainImage.asset)
 
   return (
@@ -26,7 +27,7 @@ const Blogpost = ({ data }) => {
         <p>Posted on: {publishedAt}</p>
       </div>
       <div className={styles.blogpostImage}>
-        <GatsbyImage image={image} alt="Yak yak" />
+        <GatsbyImage image={image} alt={altText} />
       </div>
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
@@ -59,13 +60,16 @@ export const query = graphql`
       tags {
         title
       }
-      mainImage {
-        asset {
-          gatsbyImageData(
-            placeholder: BLURRED
-            width: 800
-            backgroundColor: "#00000000"
-          )
+      mainImageData {
+        altText
+        mainImage {
+          asset {
+            gatsbyImageData(
+              placeholder: BLURRED
+              width: 800
+              backgroundColor: "#00000000"
+            )
+          }
         }
       }
     }

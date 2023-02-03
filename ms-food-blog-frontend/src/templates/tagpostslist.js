@@ -22,9 +22,10 @@ const TagsPostTemplate = ({ pageContext, data }) => {
           excerpt,
           slug,
           author,
-          mainImage,
+          mainImageData,
           publishedAt,
         } = node
+        const { altText, mainImage } = mainImageData
         const imageData = getImage(mainImage.asset)
         return (
           <BlogPostCard
@@ -34,6 +35,7 @@ const TagsPostTemplate = ({ pageContext, data }) => {
             date={publishedAt}
             slug={slug.current}
             imageSrc={imageData}
+            imageAltText={altText}
           >
             {excerpt}
           </BlogPostCard>
@@ -63,9 +65,12 @@ export const tagsQuery = graphql`
             name
           }
           publishedAt(formatString: "Do MMMM YYYY")
-          mainImage {
-            asset {
-              gatsbyImageData(width: 108, backgroundColor: "#00000000")
+          mainImageData {
+            altText
+            mainImage {
+              asset {
+                gatsbyImageData(width: 108, backgroundColor: "#00000000")
+              }
             }
           }
           id
