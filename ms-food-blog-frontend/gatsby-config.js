@@ -34,8 +34,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
-    `gatsby-remark-images`,
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     {
