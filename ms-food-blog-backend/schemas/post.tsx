@@ -1,9 +1,11 @@
 import {defineField, defineType} from 'sanity'
+import {TfiWrite} from 'react-icons/tfi'
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  icon: TfiWrite,
   fields: [
     defineField({
       name: 'title',

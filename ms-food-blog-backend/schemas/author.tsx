@@ -1,9 +1,12 @@
 import {defineField, defineType} from 'sanity'
 
+import {GiCook} from 'react-icons/gi'
+
 export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: GiCook,
   fields: [
     defineField({
       name: 'name',
