@@ -15,7 +15,7 @@ const CustomPortableTextComponents = {
         { width: 1024 },
         sanityConfig
       )
-      return <GatsbyImage image={imageData} alt="Yak yak" />
+      return <GatsbyImage image={imageData} alt={value.altText} />
     },
   },
 }
