@@ -13,7 +13,6 @@ const TagsPostTemplate = ({ pageContext, data }) => {
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
-  console.log(edges)
   return (
     <Layout title={tagHeader}>
       <p>{description}</p>
