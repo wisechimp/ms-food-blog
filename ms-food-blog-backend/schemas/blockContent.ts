@@ -61,6 +61,17 @@ export default defineType({
     // as a block type.
     defineArrayMember({
       type: 'image',
+      fields: [
+        {
+          name: 'altText',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for accessibility and SEO',
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
       options: {hotspot: true},
     }),
   ],
