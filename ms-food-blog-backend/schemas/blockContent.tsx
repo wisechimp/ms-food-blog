@@ -1,4 +1,5 @@
 import {defineType, defineArrayMember} from 'sanity'
+import {RiAsterisk} from 'react-icons/ri'
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -50,6 +51,24 @@ export default defineType({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
+              },
+            ],
+          },
+          {
+            title: 'Footnote',
+            name: 'footnote',
+            type: 'object',
+            icon: RiAsterisk,
+            fields: [
+              {
+                title: 'Footnote',
+                name: 'text',
+                type: 'string',
+              },
+              {
+                title: 'Index',
+                name: 'index',
+                type: 'string',
               },
             ],
           },
