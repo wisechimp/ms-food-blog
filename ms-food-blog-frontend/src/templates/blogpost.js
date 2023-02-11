@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react"
 
 import Layout from "../components/Layout"
 import CustomPortableTextComponents from "../components/customPortableTextComponents/CustomPortableTextComponents"
+import FootnotesPortableText from "../components/customPortableTextComponents/FootnotesPortableText"
 import SummaryContentBanner from "../components/summarycontentbanner/SummaryContentBanner"
 import * as styles from "./blogpost.module.css"
 
@@ -19,6 +20,7 @@ const Blogpost = ({ data }) => {
   } = data.sanityPost
   const { mainImage, altText } = mainImageData
   const image = getImage(mainImage.asset)
+  console.log(_rawBody)
 
   return (
     <Layout title={title}>
@@ -35,6 +37,7 @@ const Blogpost = ({ data }) => {
             value={_rawBody}
             components={CustomPortableTextComponents}
           />
+          <FootnotesPortableText value={_rawBody} />
         </div>
         <div className={styles.blogpostTagBox}>
           <SummaryContentBanner tags={tags} />
