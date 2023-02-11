@@ -111,7 +111,7 @@ export const postsQuery = graphql`
             altText
             mainImage {
               asset {
-                gatsbyImageData(width: 108, backgroundColor: "#00000000")
+                gatsbyImageData(height: 80, backgroundColor: "#00000000")
               }
             }
           }
