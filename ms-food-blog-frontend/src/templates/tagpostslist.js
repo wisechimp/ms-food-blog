@@ -4,6 +4,7 @@ import { getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import BlogPostCard from "../components/blogpostcard/BlogPostCard"
+import * as styles from "./tagpostslist.module.css"
 
 const TagsPostTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -15,7 +16,9 @@ const TagsPostTemplate = ({ pageContext, data }) => {
 
   return (
     <Layout title={tagHeader}>
-      <p>{description}</p>
+      <div className={styles.tagDescriptionParagraph}>
+        <p>{description}</p>
+      </div>
       {edges.map(({ node }) => {
         const {
           id,
@@ -70,7 +73,7 @@ export const tagsQuery = graphql`
             altText
             mainImage {
               asset {
-                gatsbyImageData(width: 108, backgroundColor: "#00000000")
+                gatsbyImageData(height: 80, backgroundColor: "#00000000")
               }
             }
           }
