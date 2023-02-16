@@ -30,7 +30,8 @@ module.exports = {
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_PROJECT_DATASET,
-        watchMode: true,
+        token: process.env.SANITY_READ_TOKEN,
+        watchMode: !isProd,
       },
     },
     `gatsby-transformer-sharp`,
