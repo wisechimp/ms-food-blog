@@ -20,7 +20,6 @@ const Blogpost = ({ data }) => {
   } = data.sanityPost
   const { mainImage, altText } = mainImageData
   const image = getImage(mainImage.asset)
-  console.log(_rawBody)
 
   return (
     <Layout title={title}>
