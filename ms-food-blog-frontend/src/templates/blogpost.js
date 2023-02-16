@@ -42,8 +42,6 @@ const Blogpost = ({ data }) => {
           <SummaryContentBanner tags={tags} />
         </div>
       </div>
-      <div>{/* <h2>Comments:</h2>
-        <CommentsList /> */}</div>
     </Layout>
   )
 }
