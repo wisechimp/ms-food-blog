@@ -93,5 +93,11 @@ export default defineType({
       ],
       options: {hotspot: true},
     }),
+    // Adding the table type from the Sanity plugin
+    defineArrayMember({
+      type: 'genericTable',
+      name: 'genericTable',
+      title: 'Generic Table',
+    }),
   ],
 })
