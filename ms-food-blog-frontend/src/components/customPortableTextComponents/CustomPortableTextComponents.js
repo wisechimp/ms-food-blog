@@ -5,8 +5,8 @@ import { getGatsbyImageData } from "gatsby-source-sanity"
 import HorizontalTable from "./HorizontalTable"
 
 const sanityConfig = {
-  projectId: process.env.GATSBY_APP_SANITY_PROJECT_ID,
-  dataset: process.env.GATSBY_APP_SANITY_DATASET,
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_PROJECT_DATASET,
 }
 
 const CustomPortableTextComponents = {
