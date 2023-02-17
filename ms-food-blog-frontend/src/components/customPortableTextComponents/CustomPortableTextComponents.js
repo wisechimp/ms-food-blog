@@ -3,11 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 
 import HorizontalTable from "./HorizontalTable"
-
-const sanityConfig = {
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_PROJECT_DATASET,
-}
+import projectConfig from "../../../project-config"
 
 const CustomPortableTextComponents = {
   types: {
@@ -15,7 +11,7 @@ const CustomPortableTextComponents = {
       const imageData = getGatsbyImageData(
         value?.asset?._id,
         { width: 1024 },
-        sanityConfig
+        projectConfig.sanity
       )
       return <GatsbyImage image={imageData} alt={value.altText} />
     },

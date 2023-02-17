@@ -7,6 +7,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const projectConfig = require("./project-config")
+const isProd = process.env.NODE_ENV === "production"
+
 module.exports = {
   /* Your site config here */
   siteMetadata: {
@@ -28,10 +31,9 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: process.env.SANITY_PROJECT_ID,
-        dataset: process.env.SANITY_PROJECT_DATASET,
+        ...projectConfig.sanity,
         token: process.env.SANITY_READ_TOKEN,
-        watchMode: !isProd,
+        watchMode: !isProd, // watchMode only in dev mode
       },
     },
     `gatsby-transformer-sharp`,
