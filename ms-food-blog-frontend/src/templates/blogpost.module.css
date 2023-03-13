@@ -1,0 +1,40 @@
+.blogpostBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogpostImage {
+  display: flex;
+  justify-content: space-around;
+}
+
+.blogpostMetadata {
+  display: flex;
+  gap: 1em;
+  justify-content: space-around;
+  padding: 0 1em;
+}
+
+.blogpostMetadata p {
+  margin-block-start: 0;
+}
+
+.blogpostText {
+  padding: 0 1em;
+}
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 577px) {
+  .blogpostBody {
+    display: flex;
+    flex-direction: row;
+  }
+  .blogpostTagBox {
+    flex: 0 0 180px;
+    padding-top: 1em;
+  }
+
+  .blogpostText {
+    flex: 1;
+  }
+}
