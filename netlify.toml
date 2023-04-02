@@ -1,0 +1,5 @@
+[build]
+  base = "ms-food-blog-frontend"
+
+[context.production]
+  environment = { NODE_VERSION = "18.13.0" }
