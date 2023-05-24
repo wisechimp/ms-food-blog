@@ -12,8 +12,9 @@ const Header = ({ title }) => (
         name: 'description',
         content: 'Ma Sharp\'s healthy home cooking blog.'
       },
-      {name: 'keywords',
-      content: 'Healthy, home cooking'
+      {
+        name: 'keywords',
+        content: 'Healthy, home cooking, garden'
       }
     ]}
   />
