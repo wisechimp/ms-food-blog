@@ -25,8 +25,8 @@ export default defineConfig({
             {
               title: 'Website',
               apiId: '7e87fc96-2105-45ff-89a5-300b21310483',
-              buildHookId: '',
-              name: 'ms-food-blog',
+              buildHookId: '642961b13a59e06da51b6fe8',
+              name: 'masharphomecooking',
               url: 'https://www.masharphomecooking.com',
             },
           ],
