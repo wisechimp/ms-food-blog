@@ -1,10 +1,10 @@
 [build]
   command = "next build"
-  environment = { NODE_VERSION = "18.13.0" }
+  environment = { NODE_VERSION = "18.18.0" }
   publish = '.next'
 
 [context.production]
-  environment = { NODE_VERSION = "18.13.0" }
+  environment = { NODE_VERSION = "18.18.0" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

@@ -54,12 +54,12 @@ const ContactForm = () => {
   return (
     <div className={contactformStyles.contactForm}>
       <form
-        name="contact"
-        method="post"
-        action="/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true"
+        name='contact'
+        method='post'
+        action='/thanks/'
+        data-netlify='true'
+        data-netlify-honeypot='bot-field'
+        data-netlify-recaptcha='true'
         onSubmit={handleSubmit}
       >
         <noscript>
@@ -69,57 +69,58 @@ const ContactForm = () => {
           <div>
             <p className={contactformStyles.hidden}>
               <label>
-                Don’t fill this out if you're human: <input name="bot-field" />
+                Don’t fill this out if you&apos;re human:{" "}
+                <input name='bot-field' />
               </label>
             </p>
-            <input type="hidden" name="form-name" value="contact" />
+            <input type='hidden' name='form-name' value='contact' />
             <p className={contactformStyles.formRow}>
               <label
                 className={contactformStyles.formLabel}
-                htmlFor="contactName"
+                htmlFor='contactName'
               >
                 Name:
               </label>
               <input
                 className={contactformStyles.formInput}
-                type="text"
-                id="contactName"
-                name="contactName"
-                placeholder="Your name"
-                required="required"
+                type='text'
+                id='contactName'
+                name='contactName'
+                placeholder='Your name'
+                required='required'
                 onChange={handleChange}
               />
             </p>
             <p className={contactformStyles.formRow}>
-              <label className={contactformStyles.formLabel} htmlFor="email">
+              <label className={contactformStyles.formLabel} htmlFor='email'>
                 Email:
               </label>
               <input
                 className={contactformStyles.formInput}
-                type="text"
-                id="email"
-                name="email"
-                placeholder="username@email.com"
-                required="required"
+                type='text'
+                id='email'
+                name='email'
+                placeholder='username@email.com'
+                required='required'
                 onChange={handleChange}
               />
             </p>
             <p className={contactformStyles.formRow}>
-              <label className={contactformStyles.formLabel} htmlFor="message">
+              <label className={contactformStyles.formLabel} htmlFor='message'>
                 Message:
               </label>
               <textarea
                 className={contactformStyles.formInput}
-                id="message"
-                name="message"
-                placeholder="Your message"
-                required="required"
-                rows="5"
+                id='message'
+                name='message'
+                placeholder='Your message'
+                required='required'
+                rows='5'
                 onChange={handleChange}
               />
             </p>
             <Recaptcha ref={recaptchaRef} sitekey={WHAT_THE_WHAT} />
-            <button className={contactformStyles.formButton} type="submit">
+            <button className={contactformStyles.formButton} type='submit'>
               Send Message
             </button>
           </div>
