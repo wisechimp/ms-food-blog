@@ -1,0 +1,12 @@
+.tagStyle {
+  background-color: var(--primary-contrast);
+  border-radius: 25px;
+  height: fit-content;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: fit-content;
+}
+
+.tagStyle a {
+  text-decoration: none;
+}

@@ -54,8 +54,8 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
-.cache/
+# Next Build directories
+.next
 public
 
 # Mac files

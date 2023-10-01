@@ -1,0 +1,15 @@
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Courgette', sans-serif;
+  font-size: large;
+  justify-content: space-around;
+  margin: auto;
+  padding: 1em 0;
+  width: 80%;
+}
+
+.menuContainer a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
