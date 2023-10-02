@@ -13,15 +13,13 @@
   },
   "dependencies": {
     "@sanity/table": "^1.0.1",
-    "@sanity/ui": "^1.8.2",
     "next": "latest",
     "next-sanity": "^5.5.4",
     "react": "latest",
     "react-dom": "latest",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.11.0",
-    "sanity": "^3.16.7",
-    "styled-components": "^6.0.8"
+    "sanity": "^3.16.7"
   },
   "devDependencies": {
     "@types/node": "latest",
