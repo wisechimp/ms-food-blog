@@ -13,23 +13,23 @@
   },
   "dependencies": {
     "@sanity/table": "^1.0.1",
+    "@sanity/ui": "^1.8.2",
     "next": "latest",
     "next-sanity": "^5.5.4",
     "react": "latest",
     "react-dom": "latest",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.11.0",
-    "sanity": "^3.16.7"
+    "sanity": "^3.16.7",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
-    "@sanity/ui": "^1.8.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "prettier": "^3.0.3",
-    "styled-components": "^6.0.8",
     "typescript": "latest"
   }
 }
