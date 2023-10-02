@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { table } from '@sanity/table'
-import schemas from "@/sanity/schemas"
+import { schemaTypes } from "./sanity/schemas";
 
 const config = defineConfig({
   title: "Ma Sharp Home Cooking",
@@ -11,9 +11,10 @@ const config = defineConfig({
   basePath: "/studio",
   plugins: [
     deskTool(),
-    table()],
+    table()
+  ],
   schema: {
-    types: schemas,
+    types: schemaTypes,
   },
 })
 

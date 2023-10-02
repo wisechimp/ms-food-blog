@@ -1,18 +1,17 @@
-import { defineField, defineType } from "sanity"
 import { TfiWrite } from "react-icons/tfi"
 
-export default defineType({
+const post = {
   name: "post",
   title: "Post",
   type: "document",
   icon: TfiWrite,
   fields: [
-    defineField({
+    {
       name: "title",
       title: "Title",
       type: "string",
-    }),
-    defineField({
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -20,39 +19,39 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
-    }),
-    defineField({
+    },
+    {
       name: "author",
       title: "Author",
       type: "reference",
       to: { type: "author" },
-    }),
-    defineField({
+    },
+    {
       name: "excerpt",
       title: "Excerpt",
       type: "string",
-    }),
-    defineField({
+    },
+    {
       name: "mainImageData",
       title: "Main image",
       type: "mainImageObject",
-    }),
-    defineField({
+    },
+    {
       name: "tags",
       title: "Tags",
       type: "array",
       of: [{ type: "reference", to: { type: "tag" } }],
-    }),
-    defineField({
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-    }),
-    defineField({
+    },
+    {
       name: "body",
       title: "Body",
       type: "blockContent",
-    }),
+    },
   ],
 
   preview: {
@@ -66,4 +65,6 @@ export default defineType({
       return { ...selection, subtitle: author && `by ${author}` }
     },
   },
-})
+}
+
+export default post

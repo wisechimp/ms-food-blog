@@ -1,7 +1,7 @@
-import { defineType } from "sanity"
-
-export default defineType({
+const genericTable = {
   name: "genericTable",
   title: "genericTable",
   type: "table",
-})
+}
+
+export default genericTable

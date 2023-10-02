@@ -5,6 +5,4 @@ import mainImageObject from "./mainImageObject";
 import post from "./post";
 import tag from "./tag";
 
-const schemas = [post, author, tag, blockContent, mainImageObject, genericTable]
-
-export default schemas
+export const schemaTypes = [post, author, tag, blockContent, mainImageObject, genericTable]

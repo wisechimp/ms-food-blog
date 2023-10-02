@@ -1,19 +1,17 @@
-import { defineField, defineType } from "sanity"
-
 import { GiCook } from "react-icons/gi"
 
-export default defineType({
+const author = {
   name: "author",
   title: "Author",
   type: "document",
   icon: GiCook,
   fields: [
-    defineField({
+    {
       name: "name",
       title: "Name",
       type: "string",
-    }),
-    defineField({
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -21,16 +19,16 @@ export default defineType({
         source: "name",
         maxLength: 96,
       },
-    }),
-    defineField({
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
+    },
+    {
       name: "bio",
       title: "Bio",
       type: "array",
@@ -42,7 +40,7 @@ export default defineType({
           lists: [],
         },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
@@ -50,4 +48,6 @@ export default defineType({
       media: "image",
     },
   },
-})
+}
+
+export default author

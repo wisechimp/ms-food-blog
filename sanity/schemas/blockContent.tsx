@@ -1,4 +1,3 @@
-import { defineType, defineArrayMember } from "sanity"
 import { RiAsterisk } from "react-icons/ri"
 
 /**
@@ -11,12 +10,12 @@ import { RiAsterisk } from "react-icons/ri"
  *    type: 'blockContent'
  *  }
  */
-export default defineType({
+const blockContent = {
   title: "Block Content",
   name: "blockContent",
   type: "array",
   of: [
-    defineArrayMember({
+    {
       title: "Block",
       type: "block",
       // Styles let you set what your user can mark up blocks with. These
@@ -74,11 +73,11 @@ export default defineType({
           },
         ],
       },
-    }),
+    },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    defineArrayMember({
+    {
       type: "image",
       fields: [
         {
@@ -92,12 +91,14 @@ export default defineType({
         },
       ],
       options: { hotspot: true },
-    }),
+    },
     // Adding the table type from the Sanity plugin
-    defineArrayMember({
+    {
       type: "genericTable",
       name: "genericTable",
       title: "Generic Table",
-    }),
+    },
   ],
-})
+}
+
+export default blockContent

@@ -1,21 +1,22 @@
-import { defineField, defineType } from "sanity"
 import { GrTag } from "react-icons/gr"
 
-export default defineType({
+const tag = {
   name: "tag",
   title: "Tag",
   type: "document",
   icon: GrTag,
   fields: [
-    defineField({
+    {
       name: "title",
       title: "Title",
       type: "string",
-    }),
-    defineField({
+    },
+    {
       name: "description",
       title: "Description",
       type: "text",
-    }),
+    },
   ],
-})
+}
+
+export default tag
