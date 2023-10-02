@@ -8,13 +8,13 @@ body {
 
 h1 {
   color: var(--primary-dark);
-  font-family: 'Courgette', sans-serif;
+  font-family: var(--font-headers-and-menus), sans-serif;
   padding: 0.5em;
   margin-block: 0;
 }
 
 h2, h3 {
-  font-family: 'Courgette', sans-serif;
+  font-family: var(--font-headers-and-menus), sans-serif;
 }
 
 .bulkText {

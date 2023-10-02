@@ -1,7 +1,7 @@
 .menuContainer {
   display: flex;
   flex-direction: row;
-  font-family: 'Courgette', sans-serif;
+  font-family: var(--font-headers-and-menus), sans-serif;
   font-size: large;
   justify-content: space-around;
   margin: auto;

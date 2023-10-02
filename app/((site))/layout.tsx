@@ -1,6 +1,10 @@
-import Menu from '@/app/components/menu/Menu'
-import menulinks from '@/data/menulinks'
-import { ReactElement } from 'react'
+import { ReactElement } from "react"
+
+import Menu from "@/app/components/menu/Menu"
+import menulinks from "@/data/menulinks"
+import { headersAndMenusFont } from "@/utils/fonts"
+
+import '@/styles/global.css'
 
 interface LayoutProps {
   children: ReactElement
@@ -8,7 +12,7 @@ interface LayoutProps {
 
 const RootLayout = ({ children }: LayoutProps) => {
   return (
-    <html lang='en'>
+    <html lang='en' className={headersAndMenusFont.variable}>
       <body>
         <main>
           <Menu menuLinks={menulinks} />
