@@ -1,5 +1,11 @@
 import { TfiWrite } from "react-icons/tfi"
 
+interface previewType {
+  title: string,
+  author: string,
+  media: string
+} 
+
 const post = {
   name: "post",
   title: "Post",
@@ -60,7 +66,7 @@ const post = {
       author: "author.name",
       media: "mainImageData.mainImage",
     },
-    prepare(selection) {
+    prepare(selection: previewType) {
       const { author } = selection
       return { ...selection, subtitle: author && `by ${author}` }
     },
