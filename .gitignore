@@ -56,7 +56,6 @@ typings/
 
 # Next Build directories
 .next
-public
 
 # Mac files
 .DS_Store
