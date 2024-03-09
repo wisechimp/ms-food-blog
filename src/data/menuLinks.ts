@@ -1,4 +1,4 @@
-const menulinks = [
+const menuLinks = [
   {
     key: "1",
     to: "/",
@@ -21,4 +21,4 @@ const menulinks = [
   } */,
 ]
 
-export default menulinks
+export default menuLinks
