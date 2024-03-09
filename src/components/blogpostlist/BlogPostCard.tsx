@@ -5,13 +5,13 @@ import * as styles from "./blogpostcard.module.css"
 import BlogPost from "@/src/types/BlogPost"
 import Link from "next/link"
 import dayjs from "dayjs"
-import relativeTime from 'dayjs/plugin/relativeTime'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
 
 type BlogPostCardProps = {
   data: BlogPost
 }
 
-dayjs.extend(relativeTime)
+dayjs.extend(advancedFormat)
 
 const BlogPostCard = ({
   data
@@ -25,7 +25,7 @@ const BlogPostCard = ({
       <div className={styles.cardBody}>
         <div className={styles.cardText}>
           <p>
-            Written by Ma Sharp {dayjs(publishedAt).fromNow()}
+            Written by Ma Sharp - {dayjs(publishedAt).format('Do MMMM YYYY')}
           </p>
           <p>{excerpt}</p>
         </div>
