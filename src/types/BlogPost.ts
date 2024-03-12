@@ -1,9 +1,11 @@
+import Author from "./Author"
 import Tag from "./Tag"
 
 type BlogPost = {
   _id: string
   _createdAt: string
-  title: string
+  title: string,
+  author: Author,
   publishedAt: string
   slug: string
   excerpt: string

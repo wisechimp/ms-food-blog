@@ -1,5 +1,3 @@
-import React from "react"
-
 const FootnotesPortableText = ({ value }) => {
   const notes = value
     .filter(({ _type }) => _type === "block")

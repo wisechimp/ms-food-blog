@@ -1,5 +1,3 @@
-import React from "react"
-
 import * as styles from "./generictable.module.css"
 
 const HorizontalTable = ({ data }) => {
