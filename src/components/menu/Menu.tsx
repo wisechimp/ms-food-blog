@@ -1,5 +1,5 @@
 import MenuLink from "./MenuLink"
-import menuLinks from "@/src/data/menulinks"
+import menuLinks from "@/src/data/menuLinks"
 import * as styles from "./menu.module.css"
 
 const Menu = () => {
