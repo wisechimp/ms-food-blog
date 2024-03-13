@@ -15,6 +15,7 @@ const getBlogPosts = async (): Promise<BlogPost[]> => {
       author,
       "mainImageSrc": mainImageData.mainImage.asset->url,
       "mainImageAltText": mainImageData.altText,
+      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,
     }`
   )
 }

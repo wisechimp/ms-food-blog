@@ -1,0 +1,4 @@
+.heroImage {
+  display: flex;
+  justify-content: space-around;
+}
