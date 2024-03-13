@@ -20,7 +20,10 @@ dayjs.extend(advancedFormat)
 const PostPage = async ({params}: PostPageProps) => {
   const { slug } = params
   const data = await getBlogPost(slug)
-  const { title, author, body, publishedAt, mainImageAltText, mainImageSrc, tags } = data
+  const { title, author, body, publishedAt, mainImageAltText, mainImageSrc, mainImageAspectRatio, tags } = data
+  const imageHeight = 600
+  let imageWidth = imageHeight * mainImageAspectRatio
+
   return (
     <div>
       <h1>{title}</h1>
@@ -29,7 +32,13 @@ const PostPage = async ({params}: PostPageProps) => {
         <p>Posted on: {dayjs(publishedAt).format("Do MMMM YYYY")}</p>
       </div>
       <div className={styles.blogpostImage}>
-        <Image src={mainImageSrc} alt={mainImageAltText} width={800} height={600} priority/>
+        <Image
+          src={mainImageSrc}
+          alt={mainImageAltText}
+          width={imageWidth}
+          height={imageHeight}
+          priority
+        />
       </div>
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>

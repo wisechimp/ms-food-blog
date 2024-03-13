@@ -33,6 +33,7 @@ const getBlogPost = async (slug: string): Promise<BlogPost> => {
       tags[]->{title},
       "mainImageSrc": mainImageData.mainImage.asset->url,
       "mainImageAltText": mainImageData.altText,
+      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,
       body[]
     }`,
     { slug: slug }

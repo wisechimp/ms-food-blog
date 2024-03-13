@@ -11,6 +11,7 @@ type BlogPost = {
   excerpt: string
   mainImageSrc: string
   mainImageAltText: string
+  mainImageAspectRatio: number
   tags: Array<Tag>
   body: any
 }
