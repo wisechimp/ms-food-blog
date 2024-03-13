@@ -7,7 +7,9 @@ import * as styles from './home.module.css'
 
 const Home = async () => {
   const latestBlogPosts = await getBlogPosts()
-  const { title, slug, excerpt, mainImageSrc, mainImageAltText } = latestBlogPosts[0]
+  const { title, slug, excerpt, mainImageSrc, mainImageAltText, mainImageAspectRatio } = latestBlogPosts[0]
+  const imageHeight = 600
+  let imageWidth = imageHeight * mainImageAspectRatio
 
   return (
     <div>
@@ -17,8 +19,8 @@ const Home = async () => {
         <Image
           src={mainImageSrc}
           alt={mainImageAltText}
-          width={800}
-          height={600}
+          width={imageWidth}
+          height={imageHeight}
           priority
         />
       </div>
