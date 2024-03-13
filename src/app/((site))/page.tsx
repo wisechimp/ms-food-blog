@@ -17,6 +17,7 @@ const Home = async () => {
         alt={mainImageAltText}
         width={800}
         height={600}
+        priority
       />
       <p>{excerpt}</p>
       <Link href={`/posts/${slug}`}>Read More...</Link>

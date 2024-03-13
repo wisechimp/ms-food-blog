@@ -12,6 +12,7 @@ type BlogPost = {
   mainImageSrc: string
   mainImageAltText: string
   tags: Array<Tag>
+  body: any
 }
 
 export default BlogPost

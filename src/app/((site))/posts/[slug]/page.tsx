@@ -29,7 +29,7 @@ const PostPage = async ({params}: PostPageProps) => {
         <p>Posted on: {dayjs(publishedAt).format("Do MMMM YYYY")}</p>
       </div>
       <div className={styles.blogpostImage}>
-        <Image src={mainImageSrc} alt={mainImageAltText} width={800} height={600} />
+        <Image src={mainImageSrc} alt={mainImageAltText} width={800} height={600} priority/>
       </div>
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
