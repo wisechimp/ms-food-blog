@@ -16,7 +16,10 @@ dayjs.extend(advancedFormat)
 const BlogPostCard = ({
   data
 }: BlogPostCardProps) => {
-  const { title, publishedAt, excerpt, slug, mainImageSrc, mainImageAltText } = data
+  const { title, publishedAt, excerpt, slug, mainImageSrc, mainImageAltText, mainImageAspectRatio } = data
+  const imageHeight = 100
+  let imageWidth = imageHeight * mainImageAspectRatio
+
   return (
     <div className={styles.card}>
       <div className={styles.cardTitle}>
@@ -25,12 +28,17 @@ const BlogPostCard = ({
       <div className={styles.cardBody}>
         <div className={styles.cardText}>
           <p>
-            Written by Ma Sharp - {dayjs(publishedAt).format('Do MMMM YYYY')}
+            Written by Ma Sharp - {dayjs(publishedAt).format("Do MMMM YYYY")}
           </p>
           <p>{excerpt}</p>
         </div>
         <div className={styles.cardThumb}>
-          <Image src={mainImageSrc} alt={mainImageAltText} width={110} height={80} />
+          <Image
+            src={mainImageSrc}
+            alt={mainImageAltText}
+            width={imageWidth}
+            height={imageHeight}
+          />
         </div>
       </div>
       <div className={styles.cardButton}>
