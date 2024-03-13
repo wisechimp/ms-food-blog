@@ -1,0 +1,34 @@
+@import './variables.css';
+
+body {
+  color: var(--primary-dark);
+  font-family: sans-serif;
+  margin: 0;
+}
+
+h1 {
+  color: var(--primary-dark);
+  font-family: var(--font-headers-and-menus), sans-serif;
+  padding: 0.5em;
+  margin-block: 0;
+}
+
+h2, h3 {
+  font-family: var(--font-headers-and-menus), sans-serif;
+}
+
+.bulkText {
+  padding: 0 1em;
+}
+
+.bulkText p {
+  margin: 0 0 1em 0;
+}
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 996px) {
+	body {
+		max-width: 996px;
+		margin: auto;
+	}
+}
