@@ -1,6 +1,11 @@
 import Link from "next/link"
 
-const MenuLink = ({ to, linkText }) => (
+type MenuLinkProps = {
+    to: string,
+    linkText: string
+}
+
+const MenuLink = ({ to, linkText }: MenuLinkProps) => (
     <Link href={`${to}`}>{linkText}</Link>
 )
 
