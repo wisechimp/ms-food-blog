@@ -1,0 +1,37 @@
+{
+  "name": "ms-food-blog",
+  "version": "0.7.0",
+  "private": true,
+  "description": "A food blog",
+  "license": "0BSD",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.0.9",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/table": "^1.0.1",
+    "dayjs": "^1.11.10",
+    "next": "13.4.9",
+    "next-sanity": "^5.5.4",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-google-recaptcha": "^3.1.0",
+    "react-icons": "^4.11.0",
+    "sanity": "^3.16.7",
+    "styled-components": "5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "prettier": "^3.0.3",
+    "typescript": "latest"
+  }
+}
