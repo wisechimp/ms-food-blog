@@ -21,6 +21,12 @@ const Home = async () => {
           alt={mainImageAltText}
           width={imageWidth}
           height={imageHeight}
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: imageHeight,
+            maxWidth: imageWidth
+          }}
           priority
         />
       </div>
