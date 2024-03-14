@@ -1,13 +1,14 @@
-import { getBlogPost } from "@/sanity/sanity-utils"
-
-import * as styles from './postpage.module.css'
-import dayjs from "dayjs"
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-import Image from "next/image"
 import { PortableText } from "@portabletext/react"
+import dayjs from "dayjs"
+import advancedFormat from "dayjs/plugin/advancedFormat"
+
+import { getBlogPost } from "@/sanity/sanity-utils"
 import SummaryContentBanner from "@/src/components/summarycontentbanner/SummaryContentBanner"
 import CustomPortableTextComponents from "@/src/components/customPortableTextComponents/CustomPortableTextComponents"
 import FootnotesPortableText from "@/src/components/customPortableTextComponents/FootnotesPortableText"
+import HeroImage from "@/src/components/heroImage/HeroImage"
+
+import * as styles from "./postpage.module.css"
 
 type PostPageProps = {
   params: {
@@ -17,12 +18,19 @@ type PostPageProps = {
 
 dayjs.extend(advancedFormat)
 
-const PostPage = async ({params}: PostPageProps) => {
+const PostPage = async ({ params }: PostPageProps) => {
   const { slug } = params
   const data = await getBlogPost(slug)
-  const { title, author, body, publishedAt, mainImageAltText, mainImageSrc, mainImageAspectRatio, tags } = data
-  const imageHeight = 600
-  let imageWidth = imageHeight * mainImageAspectRatio
+  const {
+    title,
+    author,
+    body,
+    publishedAt,
+    mainImageAltText,
+    mainImageSrc,
+    mainImageAspectRatio,
+    tags,
+  } = data
 
   return (
     <div>
@@ -31,21 +39,11 @@ const PostPage = async ({params}: PostPageProps) => {
         <p>Author: {author.name}</p>
         <p>Posted on: {dayjs(publishedAt).format("Do MMMM YYYY")}</p>
       </div>
-      <div className={styles.blogpostImage}>
-        <Image
-          src={mainImageSrc}
-          alt={mainImageAltText}
-          width={imageWidth}
-          height={imageHeight}
-          style={{
-            width: "100%",
-            height: "auto",
-            maxHeight: imageHeight,
-            maxWidth: imageWidth,
-          }}
-          priority
-        />
-      </div>
+      <HeroImage
+        imageSrc={mainImageSrc}
+        imageAltText={mainImageAltText}
+        imageAspectRatio={mainImageAspectRatio}
+      />
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
           <PortableText

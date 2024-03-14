@@ -12,13 +12,10 @@ const BlockImage = ({ imageData, imageAltText }: BlockImageProps ) => {
   
   return (
     <Image
-      src={imageUrlFor(imageData).width(800).url()}
+      src={imageUrlFor(imageData).width(800).format("webp").url()}
       alt={imageAltText}
       width={800}
       height={600}
-      sizes="
-        (max-width: 576px) 100vw,
-        80vw"
       style={{
         width: "100%",
         height: "auto",
