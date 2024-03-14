@@ -20,7 +20,7 @@ const Home = async () => {
   return (
     <div>
       {/* Motto? - She who shares wins... */}
-      <h2>{`Latest - ${title}`}</h2>
+      <h1>{`Latest - ${title}`}</h1>
       <HeroImage
         imageSrc={mainImageSrc}
         imageAltText={mainImageAltText}
