@@ -3,6 +3,9 @@ import Link from "next/link"
 import { getBlogPosts } from "@/sanity/sanity-utils"
 import BlogPostList from "@/src/components/blogpostlist/BlogPostList"
 import HeroImage from "@/src/components/heroImage/HeroImage"
+import LinkButton from "@/src/components/linkButton/LinkButton"
+
+import * as styles from '@/src/components/blogpostlist/blogpostcard.module.css'
 
 const Home = async () => {
   const latestBlogPosts = await getBlogPosts()
@@ -24,8 +27,12 @@ const Home = async () => {
         imageAltText={mainImageAltText}
         imageAspectRatio={mainImageAspectRatio}
       />
-      <p>{excerpt}</p>
-      <Link href={`/posts/${slug}`}>Read More...</Link>
+      <div style={{ padding: "1em 1em 0" }}>
+        <p>{excerpt}</p>
+        <div className={styles.cardButton}>
+          <LinkButton slug={slug} />
+        </div>
+      </div>
       <BlogPostList />
     </div>
   )
