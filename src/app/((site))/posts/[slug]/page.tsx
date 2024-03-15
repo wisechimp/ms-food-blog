@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import advancedFormat from "dayjs/plugin/advancedFormat"
 
 import { getBlogPost } from "@/sanity/sanity-utils"
-import SummaryContentBanner from "@/src/components/summarycontentbanner/SummaryContentBanner"
+import TagsBannerBox from "@/src/components/tagsBannerBox/TagsBannerBox"
 import CustomPortableTextComponents from "@/src/components/customPortableTextComponents/CustomPortableTextComponents"
 import FootnotesPortableText from "@/src/components/customPortableTextComponents/FootnotesPortableText"
 import HeroImage from "@/src/components/heroImage/HeroImage"
@@ -53,7 +53,7 @@ const PostPage = async ({ params }: PostPageProps) => {
           <FootnotesPortableText value={body} />
         </div>
         <div className={styles.blogpostTagBox}>
-          <SummaryContentBanner tags={tags} />
+          <TagsBannerBox tags={tags} />
         </div>
       </div>
     </div>
