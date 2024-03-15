@@ -24,14 +24,6 @@ h2, h3 {
   font-weight: bolder;
 }
 
-.bulkText {
-  padding: 0 1em;
-}
-
-.bulkText p {
-  margin: 0 0 1em 0;
-}
-
 /*Adds margin on large screens*/
 @media screen and (min-width: 996px) {
 	body {

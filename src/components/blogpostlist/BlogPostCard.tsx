@@ -1,11 +1,11 @@
 import React from "react"
 import Image from "next/image"
-
-import * as styles from "./blogpostcard.module.css"
-import BlogPost from "@/src/types/BlogPost"
-import Link from "next/link"
 import dayjs from "dayjs"
-import advancedFormat from 'dayjs/plugin/advancedFormat'
+import advancedFormat from "dayjs/plugin/advancedFormat"
+
+import BlogPost from "@/src/types/BlogPost"
+import * as styles from "./blogpostcard.module.css"
+import LinkButton from "../linkButton/LinkButton"
 
 type BlogPostCardProps = {
   data: BlogPost
@@ -22,7 +22,7 @@ const BlogPostCard = ({
 
   return (
     <div className={styles.card}>
-      <div className={styles.cardTitle}>
+      <div>
         <h2>{title}</h2>
       </div>
       <div className={styles.cardBody}>
@@ -42,7 +42,7 @@ const BlogPostCard = ({
         </div>
       </div>
       <div className={styles.cardButton}>
-        <Link href={`/posts/${slug}`}>Read More...</Link>
+        <LinkButton slug={slug} />
       </div>
     </div>
   )

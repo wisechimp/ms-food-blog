@@ -3,24 +3,19 @@
   flex-direction: column;
 }
 
-.blogpostImage {
-  display: flex;
-  justify-content: space-around;
-}
-
 .blogpostMetadata {
   display: flex;
   gap: 1em;
   justify-content: space-around;
-  padding: 0 1em;
-}
-
-.blogpostMetadata p {
-  margin-block-start: 0;
+  padding: 0 1em 1em;
 }
 
 .blogpostText {
-  padding: 0 1em;
+  padding: 1em 1em 0;
+}
+
+.blogpostText :is(p, img) {
+  padding: 0 0 0.5em;
 }
 
 /*Adds margin on large screens*/
