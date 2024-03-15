@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import './variables.css';
 
 body {
@@ -9,20 +12,16 @@ body {
 h1 {
   color: var(--primary-dark);
   font-family: var(--font-headers-and-menus), sans-serif;
+  font-size: x-large;
+  font-weight: bold;
   padding: 0.5em;
   margin-block: 0;
 }
 
 h2, h3 {
   font-family: var(--font-headers-and-menus), sans-serif;
-}
-
-.bulkText {
-  padding: 0 1em;
-}
-
-.bulkText p {
-  margin: 0 0 1em 0;
+  font-size: large;
+  font-weight: bolder;
 }
 
 /*Adds margin on large screens*/

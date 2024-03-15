@@ -3,6 +3,7 @@ import { ReactElement } from "react"
 import Menu from "@/src/components/menu/Menu"
 import { headersAndMenusFont } from "@/src/utils/fonts"
 import "@/src/styles/global.css"
+import Providers from "../providers"
 
 interface LayoutProps {
   children: ReactElement
@@ -10,12 +11,14 @@ interface LayoutProps {
 
 const RootLayout = ({ children }: LayoutProps) => {
   return (
-    <html lang='en' className={headersAndMenusFont.variable}>
+    <html lang='en' className={`light ${headersAndMenusFont.variable}`}>
       <body>
-        <main>
-          <Menu />
-          {children}
-        </main>
+        <Providers>
+          <main>
+            <Menu />
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )
