@@ -15,8 +15,6 @@ const Home = async () => {
     mainImageAspectRatio,
   } = latestBlogPosts[0]
 
-  console.log(mainImageSrc)
-
   return (
     <div>
       {/* Motto? - She who shares wins... */}
