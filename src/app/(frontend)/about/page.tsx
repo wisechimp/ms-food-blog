@@ -1,10 +1,13 @@
 import { PortableText } from "@portabletext/react";
 
-import { getAuthor } from "@/src/sanity/sanity-utils";
+import { sanityFetch } from "@/src/sanity/lib/live";
+import { getAuthor } from "@/src/sanity/lib/queries";
 
 const About = async () => {
-  const authorData = await getAuthor();
-  const { bio } = authorData;
+  const { data: author } = await sanityFetch({
+    query: getAuthor,
+  });
+  const { bio } = author;
 
   return (
     <div>
