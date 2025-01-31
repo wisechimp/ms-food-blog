@@ -13,7 +13,7 @@ const components: PortableTextComponents = {
         />
       ) : null,
     genericTable: (props) =>
-      props.value ? <HorizontalTable data={props.value.row} /> : null,
+      props.value ? <HorizontalTable data={props.value.rows} /> : null,
   },
 };
 
