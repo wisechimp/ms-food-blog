@@ -19,6 +19,6 @@ const menuLinks = [
     to: "/dashboard",
     linktext: "Account",
   } */,
-]
+];
 
-export default menuLinks
+export default menuLinks;
