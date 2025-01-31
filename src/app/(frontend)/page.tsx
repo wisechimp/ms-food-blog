@@ -1,9 +1,10 @@
 import BlogPostList from "@/src/components/blogpostlist/blog-post-list";
+import { getAllPosts } from "@/src/sanity/lib/queries";
 
 const Home = () => {
   return (
     <div>
-      <BlogPostList />
+      <BlogPostList query={getAllPosts} />
     </div>
   );
 };

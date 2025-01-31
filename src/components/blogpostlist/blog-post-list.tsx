@@ -1,13 +1,20 @@
 import { sanityFetch } from "@/src/sanity/lib/live";
-import { getAllPosts } from "@/src/sanity/lib/queries";
+import { Post } from "@/src/sanity/types";
 
 import HeroImage from "../hero-image/hero-image";
 import LinkButton from "../link-button/link-button";
 import BlogPostCard from "./blog-post-card";
 import * as styles from "./blogpostcard.module.css";
 
-const BlogPostList = async () => {
-  const { data: posts } = await sanityFetch({ query: getAllPosts });
+type BlogPostListProps = {
+  query: string;
+  params?: Promise<{
+    slug: string;
+  }>;
+};
+
+const BlogPostList = async ({ query, params }: BlogPostListProps) => {
+  const { data: posts } = await sanityFetch({ query, params });
 
   const {
     title,
@@ -18,7 +25,7 @@ const BlogPostList = async () => {
     slug,
   } = posts[0];
 
-  const renderedPosts = posts.map((post, i) => {
+  const renderedPosts = posts.map((post: Post, i: number) => {
     if (i === 0) {
       return;
     } else {

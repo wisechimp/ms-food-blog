@@ -1,6 +1,6 @@
 import BlogPostList from "@/src/components/blogpostlist/blog-post-list";
 import { sanityFetch } from "@/src/sanity/lib/live";
-import { getTag } from "@/src/sanity/lib/queries";
+import { getTag, getTaggedPosts } from "@/src/sanity/lib/queries";
 
 type TagPageProps = {
   params: Promise<{
@@ -11,16 +11,16 @@ type TagPageProps = {
 const TagPage = async ({ params }: TagPageProps) => {
   const { data: tag } = await sanityFetch({
     query: getTag,
-    params: params,
+    params: await params,
   });
   const { title, description } = tag;
   console.log(`Tag Data is: ${tag}`);
 
   return (
     <div>
-      <h2>The following posts are tagged {(await params).slug}:</h2>
+      <h2>The following posts are tagged {title}:</h2>
       <p>{description}</p>
-      <BlogPostList fetchData={() => getTaggedBlogPosts(slug)} />
+      <BlogPostList query={getTaggedPosts} params={params} />
     </div>
   );
 };
