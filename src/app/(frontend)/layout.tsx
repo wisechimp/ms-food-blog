@@ -10,20 +10,18 @@ interface LayoutProps {
   children: ReactElement;
 }
 
-const RootLayout = ({ children }: LayoutProps) => {
+const FrontendLayout = ({ children }: LayoutProps) => {
   return (
-    <html lang="en" className={`light ${headersAndMenusFont.variable}`}>
-      <body>
-        <Providers>
-          <main>
-            <Menu />
-            {children}
-            <SanityLive />
-          </main>
-        </Providers>
-      </body>
-    </html>
+    <div lang="en" className={`${headersAndMenusFont.variable}`}>
+      <Providers>
+        <main>
+          <Menu />
+          {children}
+          <SanityLive />
+        </main>
+      </Providers>
+    </div>
   );
 };
 
-export default RootLayout;
+export default FrontendLayout;
