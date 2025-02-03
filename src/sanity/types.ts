@@ -351,7 +351,7 @@ export type GetTaggedPostsResult = Array<{
   }> | null;
 }>;
 // Variable: getPost
-// Query: *[_type == "post" && slug.current == $slug][0]{      _id,      _createdAt,      _rawBody,      title,      excerpt,      "slug": slug.current,      publishedAt,      author->{name},      tags[]->{_id, title},      "mainImageSrc": mainImageData.mainImage.asset->url,      "mainImageAltText": mainImageData.altText,      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,      body[]    }
+// Query: *[_type == "post" && slug.current == $slug][0]{      _id,      _createdAt,      _rawBody,      title,      excerpt,      "slug": slug.current,      publishedAt,      author->{name},      tags[]->{_id, title, "slug": slug.current},      "mainImageSrc": mainImageData.mainImage.asset->url,      "mainImageAltText": mainImageData.altText,      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,      body[]    }
 export type GetPostResult = {
   _id: string;
   _createdAt: string;
@@ -366,6 +366,7 @@ export type GetPostResult = {
   tags: Array<{
     _id: string;
     title: string | null;
+    slug: string | null;
   }> | null;
   mainImageSrc: string | null;
   mainImageAltText: string | null;
@@ -454,7 +455,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "post"] | order(publishedAt desc) {\n      _id,\n      title,\n      excerpt,\n      "slug": slug.current,\n      publishedAt,\n      author,\n      "mainImageSrc": mainImageData.mainImage.asset->url,\n      "mainImageAltText": mainImageData.altText,\n      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,\n    }\n  ': GetAllPostsResult;
     '*[_type == "post" && $slug in tags[]->slug.current] | order(publishedAt desc) {\n      _id,\n      title,\n      excerpt,\n      "slug": slug.current,\n      publishedAt,\n      author,\n      "mainImageSrc": mainImageData.mainImage.asset->url,\n      "mainImageAltText": mainImageData.altText,\n      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,\n      tags[]->{title, description}\n    }': GetTaggedPostsResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n      _id,\n      _createdAt,\n      _rawBody,\n      title,\n      excerpt,\n      "slug": slug.current,\n      publishedAt,\n      author->{name},\n      tags[]->{_id, title},\n      "mainImageSrc": mainImageData.mainImage.asset->url,\n      "mainImageAltText": mainImageData.altText,\n      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,\n      body[]\n    }': GetPostResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n      _id,\n      _createdAt,\n      _rawBody,\n      title,\n      excerpt,\n      "slug": slug.current,\n      publishedAt,\n      author->{name},\n      tags[]->{_id, title, "slug": slug.current},\n      "mainImageSrc": mainImageData.mainImage.asset->url,\n      "mainImageAltText": mainImageData.altText,\n      "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,\n      body[]\n    }': GetPostResult;
     '*[_type == "author"][0]{\n      _id,\n      _createdAt,\n      name,\n      bio,\n      "image": mainImage.asset->url,\n      "imageAltText": mainImage.altText\n    }': GetAuthorResult;
     '*[_type == "tag" && slug.current == $slug][0]{\n      _id,\n      title,\n      description\n    }\n  ': GetTagResult;
   }

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { heroui } from '@heroui/react'
+import { heroui } from "@heroui/react";
 
 const config = {
   content: [
@@ -11,6 +11,6 @@ const config = {
     extend: {},
   },
   plugins: [heroui()],
-}
+};
 
-export default config
+export default config;

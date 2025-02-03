@@ -13,7 +13,11 @@ interface LayoutProps {
 
 const FrontendLayout = ({ children }: LayoutProps) => {
   return (
-    <div lang="en" className={`${headersAndMenusFont.variable}`}>
+    <div
+      lang="en"
+      className={`${headersAndMenusFont.variable} max-w-5xl`}
+      style={{ margin: "0 auto" }}
+    >
       <Providers>
         <main>
           <Menu />
