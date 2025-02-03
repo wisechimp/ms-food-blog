@@ -1,16 +1,15 @@
-"use client"
-import { NextUIProvider } from "@nextui-org/react"
+"use client";
+
+import React from "react";
+
+import { HeroUIProvider } from "@heroui/react";
 
 type ProvidersProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-const Providers = ({ children }: ProvidersProps ) => {
-  return(
-    <NextUIProvider>
-      {children}
-    </NextUIProvider>
-  )
-}
+const Providers = ({ children }: ProvidersProps) => {
+  return <HeroUIProvider>{children}</HeroUIProvider>;
+};
 
-export default Providers
+export default Providers;
