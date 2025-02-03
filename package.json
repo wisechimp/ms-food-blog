@@ -6,7 +6,6 @@
   "license": "0BSD",
   "scripts": {
     "predev": "npm run typegen",
-    "prebuild": "npm run typegen",
     "dev": "next dev",
     "build": "next build",
     "format": "prettier --write",
