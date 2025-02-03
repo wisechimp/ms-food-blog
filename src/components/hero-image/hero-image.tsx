@@ -1,17 +1,22 @@
-import Image from 'next/image'
-import * as styles from './heroImage.module.css'
+import Image from "next/image";
+
+import * as styles from "./heroImage.module.css";
 
 type HeroImageProps = {
-  imageSrc: string,
-  imageAltText: string,
-  imageAspectRatio: number
-}
+  imageSrc: string;
+  imageAltText: string;
+  imageAspectRatio: number;
+};
 
-const HeroImage = ({imageSrc, imageAltText, imageAspectRatio}: HeroImageProps) => {
-  const imageHeight = 600
-  let imageWidth = imageHeight * imageAspectRatio
+const HeroImage = ({
+  imageSrc,
+  imageAltText,
+  imageAspectRatio,
+}: HeroImageProps) => {
+  const imageHeight = 600;
+  const imageWidth = imageHeight * imageAspectRatio;
 
-  return(
+  return (
     <div className={styles.heroImage}>
       <Image
         src={`${imageSrc}?auto=format`}
@@ -27,7 +32,7 @@ const HeroImage = ({imageSrc, imageAltText, imageAspectRatio}: HeroImageProps) =
         priority
       />
     </div>
-  )
-}
+  );
+};
 
-export default HeroImage
+export default HeroImage;
