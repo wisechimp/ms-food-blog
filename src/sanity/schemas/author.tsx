@@ -1,4 +1,4 @@
-import { GiCook } from "react-icons/gi"
+import { GiCook } from "react-icons/gi";
 
 const author = {
   name: "author",
@@ -48,6 +48,6 @@ const author = {
       media: "image",
     },
   },
-}
+};
 
-export default author
+export default author;

@@ -19,6 +19,6 @@ const mainImageObject = {
       type: "string",
     },
   ],
-}
+};
 
-export default mainImageObject
+export default mainImageObject;
