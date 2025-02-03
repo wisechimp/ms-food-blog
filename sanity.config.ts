@@ -15,11 +15,7 @@ const config = defineConfig({
   dataset,
   apiVersion,
   basePath: "/studio",
-  plugins: [
-    structureTool({ structure }),
-    table(),
-    visionTool({ defaultApiVersion: apiVersion }),
-  ],
+  plugins: [structureTool({ structure }), table(), visionTool()],
   schema,
 });
 

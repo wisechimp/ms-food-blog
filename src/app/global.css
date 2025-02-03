@@ -4,9 +4,7 @@
 @import "./variables.css";
 
 body {
-  color: var(--primary-dark);
   font-family: sans-serif;
-  margin: 0;
 }
 
 h1 {
@@ -20,6 +18,7 @@ h1 {
 
 h2,
 h3 {
+  color: var(--primary-dark);
   font-family: var(--font-headers-and-menus), sans-serif;
   font-size: large;
   font-weight: bolder;

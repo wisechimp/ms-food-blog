@@ -15,7 +15,7 @@ export const getAllPosts =
   `);
 
 export const getTaggedPosts =
-  defineQuery(`*[_type == "post" && slug.current == $slug] > 0] | order(publishedAt desc) {
+  defineQuery(`*[_type == "post" && $slug in tags[]->slug.current] | order(publishedAt desc) {
       _id,
       title,
       excerpt,
@@ -38,7 +38,7 @@ export const getPost =
       "slug": slug.current,
       publishedAt,
       author->{name},
-      tags[]->{_id, title},
+      tags[]->{_id, title, "slug": slug.current},
       "mainImageSrc": mainImageData.mainImage.asset->url,
       "mainImageAltText": mainImageData.altText,
       "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,
@@ -54,7 +54,8 @@ export const getAuthor = defineQuery(`*[_type == "author"][0]{
       "imageAltText": mainImage.altText
     }`);
 
-export const getTag = defineQuery(`*[_type == "tag" && title == $slug][0]{
+export const getTag =
+  defineQuery(`*[_type == "tag" && slug.current == $slug][0]{
       _id,
       title,
       description
