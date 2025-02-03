@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import Menu from "@/src/components/menu/Menu";
+import Menu from "@/src/components/menu/menu";
 import { SanityLive } from "@/src/sanity/lib/live";
 import { headersAndMenusFont } from "@/src/utils/fonts";
 
