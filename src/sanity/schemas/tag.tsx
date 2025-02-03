@@ -1,4 +1,4 @@
-import { GrTag } from "react-icons/gr"
+import { GrTag } from "react-icons/gr";
 
 const tag = {
   name: "tag",
@@ -12,11 +12,20 @@ const tag = {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "description",
       title: "Description",
       type: "text",
     },
   ],
-}
+};
 
-export default tag
+export default tag;

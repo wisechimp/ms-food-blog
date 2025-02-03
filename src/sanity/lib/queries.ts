@@ -15,7 +15,7 @@ export const getAllPosts =
   `);
 
 export const getTaggedPosts =
-  defineQuery(`*[_type == "post" && count(tags[@->title in [$slug]]) > 0] | order(publishedAt desc) {
+  defineQuery(`*[_type == "post" && slug.current == $slug] > 0] | order(publishedAt desc) {
       _id,
       title,
       excerpt,
@@ -29,7 +29,7 @@ export const getTaggedPosts =
     }`);
 
 export const getPost =
-  defineQuery(` *[_type == "post" && slug.current == $slug][0]{
+  defineQuery(`*[_type == "post" && slug.current == $slug][0]{
       _id,
       _createdAt,
       _rawBody,

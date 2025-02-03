@@ -14,7 +14,6 @@ const TagPage = async ({ params }: TagPageProps) => {
     params: await params,
   });
   const { title, description } = tag;
-  console.log(`Tag Data is: ${tag}`);
 
   return (
     <div>
