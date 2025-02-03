@@ -5,6 +5,3 @@
 
 [context.production]
   environment = { NODE_VERSION = "22.12.0" }
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
