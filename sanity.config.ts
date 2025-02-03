@@ -1,19 +1,26 @@
-import { table } from "@sanity/table";
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+"use client";
 
-import { schemaTypes } from "./src/sanity/schemas";
+import { table } from "@sanity/table";
+import { visionTool } from "@sanity/vision";
+import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+
+import { apiVersion, dataset, projectId } from "./src/sanity/env";
+import { schema } from "./src/sanity/schemas";
+import { structure } from "./src/sanity/structure";
 
 const config = defineConfig({
   title: "Ma Sharp Home Cooking",
-  projectId: "z4j35np0",
-  dataset: "production",
-  apiVersion: "2023-10-02",
+  projectId,
+  dataset,
+  apiVersion,
   basePath: "/studio",
-  plugins: [deskTool(), table()],
-  schema: {
-    types: schemaTypes,
-  },
+  plugins: [
+    structureTool({ structure }),
+    table(),
+    visionTool({ defaultApiVersion: apiVersion }),
+  ],
+  schema,
 });
 
 export default config;
