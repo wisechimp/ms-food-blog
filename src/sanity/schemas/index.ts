@@ -1,9 +1,9 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 import author from "./author";
-import blockContent from "./blockContent";
-import genericTable from "./genericTable";
-import mainImageObject from "./mainImageObject";
+import blockContent from "./block-content";
+import genericTable from "./generic-table";
+import mainImageObject from "./main-image-object";
 import post from "./post";
 import tag from "./tag";
 

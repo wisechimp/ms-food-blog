@@ -1,4 +1,4 @@
-import { RiAsterisk } from "react-icons/ri"
+import { RiAsterisk } from "react-icons/ri";
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -85,9 +85,6 @@ const blockContent = {
           type: "string",
           title: "Alternative text",
           description: "Important for accessibility and SEO",
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
       options: { hotspot: true },
@@ -99,6 +96,6 @@ const blockContent = {
       title: "Generic Table",
     },
   ],
-}
+};
 
-export default blockContent
+export default blockContent;
