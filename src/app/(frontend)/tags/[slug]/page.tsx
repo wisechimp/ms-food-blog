@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 import BlogPostList from "@/src/components/blogpostlist/blog-post-list";
 import { sanityFetch } from "@/src/sanity/lib/live";
 import { getTag, getTaggedPosts } from "@/src/sanity/lib/queries";
@@ -13,6 +15,11 @@ const TagPage = async ({ params }: TagPageProps) => {
     query: getTag,
     params: await params,
   });
+
+  if (!tag) {
+    return redirect("/404");
+  }
+
   const { title, description } = tag;
 
   return (

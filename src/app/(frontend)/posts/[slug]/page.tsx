@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 import { PortableText } from "@portabletext/react";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
@@ -23,6 +25,11 @@ const PostPage = async ({ params }: PostPageProps) => {
     query: getPost,
     params: await params,
   });
+
+  if (!post) {
+    return redirect("/404");
+  }
+
   const {
     title,
     author,
@@ -38,20 +45,25 @@ const PostPage = async ({ params }: PostPageProps) => {
     <div>
       <h1>{title}</h1>
       <div className={styles.blogpostMetadata}>
-        <p>Author: {author.name}</p>
+        <p>Author: {author?.name || "Ma Sharp"}</p>
         <p>Posted on: {dayjs(publishedAt).format("Do MMMM YYYY")}</p>
       </div>
-      <HeroImage
-        imageSrc={mainImageSrc}
-        imageAltText={mainImageAltText}
-        imageAspectRatio={mainImageAspectRatio}
-      />
+      {mainImageSrc && (
+        <HeroImage
+          imageSrc={mainImageSrc}
+          imageAltText={
+            mainImageAltText ||
+            "Apologies, there should be text describing the image here."
+          }
+          imageAspectRatio={mainImageAspectRatio || 4 / 3}
+        />
+      )}
       <div className={styles.blogpostBody}>
         <div className={styles.blogpostText}>
-          <PortableText value={body} components={components} />
+          {body && <PortableText value={body} components={components} />}
         </div>
         <div className={styles.blogpostTagBox}>
-          <TagsBannerBox tags={tags} />
+          {tags && <TagsBannerBox tags={tags} />}
         </div>
       </div>
     </div>
