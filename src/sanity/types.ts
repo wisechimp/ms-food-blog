@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 // Query TypeMap
 import "@sanity/client";
 

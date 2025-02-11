@@ -25,7 +25,6 @@ export const getTaggedPosts =
       "mainImageSrc": mainImageData.mainImage.asset->url,
       "mainImageAltText": mainImageData.altText,
       "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,
-      tags[]->{title, description}
     }`);
 
 export const getPost =
@@ -38,7 +37,7 @@ export const getPost =
       "slug": slug.current,
       publishedAt,
       author->{name},
-      tags[]->{_id, title, "slug": slug.current},
+      "tags": tags[]{_id, title, "slug": slug.current},
       "mainImageSrc": mainImageData.mainImage.asset->url,
       "mainImageAltText": mainImageData.altText,
       "mainImageAspectRatio": mainImageData.mainImage.asset->metadata.dimensions.aspectRatio,

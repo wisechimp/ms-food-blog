@@ -13,6 +13,7 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   ...compat.plugins("check-file"),
   ...compat.config({
+    ignorePatterns: ["types.ts"],
     rules: {
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],

@@ -3,18 +3,21 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 
-import BlogPost from "@/src/types/BlogPost";
+import { GetPostResult } from "@/src/sanity/types";
 
 import LinkButton from "../link-button/link-button";
 import * as styles from "./blogpostcard.module.css";
 
-type BlogPostCardProps = {
-  data: BlogPost;
-};
-
 dayjs.extend(advancedFormat);
 
+type BlogPostCardProps = {
+  data: GetPostResult;
+};
+
 const BlogPostCard = ({ data }: BlogPostCardProps) => {
+  if (!data) {
+    return null;
+  }
   const {
     title,
     publishedAt,
@@ -25,7 +28,7 @@ const BlogPostCard = ({ data }: BlogPostCardProps) => {
     mainImageAspectRatio,
   } = data;
   const imageHeight = 100;
-  const imageWidth = imageHeight * mainImageAspectRatio;
+  const imageWidth = imageHeight * (mainImageAspectRatio ?? 4 / 3);
 
   return (
     <div className={styles.card}>
@@ -40,16 +43,21 @@ const BlogPostCard = ({ data }: BlogPostCardProps) => {
           <p>{excerpt}</p>
         </div>
         <div className={styles.cardThumb}>
-          <Image
-            src={mainImageSrc}
-            alt={mainImageAltText}
-            width={imageWidth}
-            height={imageHeight}
-          />
+          {mainImageSrc && (
+            <Image
+              src={mainImageSrc}
+              alt={
+                mainImageAltText ||
+                "Apologies, there should be text describing the image here."
+              }
+              width={imageWidth}
+              height={imageHeight}
+            />
+          )}
         </div>
       </div>
       <div className={styles.cardButton}>
-        <LinkButton slug={slug} />
+        <LinkButton slug={slug || "/404"} />
       </div>
     </div>
   );
