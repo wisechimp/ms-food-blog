@@ -1,10 +1,10 @@
-import { TfiWrite } from "react-icons/tfi"
+import { TfiWrite } from "react-icons/tfi";
 
 interface previewType {
-  title: string,
-  author: string,
-  media: string
-} 
+  title: string;
+  author: string;
+  media: string;
+}
 
 const post = {
   name: "post",
@@ -67,10 +67,10 @@ const post = {
       media: "mainImageData.mainImage",
     },
     prepare(selection: previewType) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
     },
   },
-}
+};
 
-export default post
+export default post;
