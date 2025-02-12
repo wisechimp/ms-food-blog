@@ -8,12 +8,12 @@ const menuLinks = [
     key: "2",
     to: "/about",
     linktext: "About",
-  },
+  } /* ,
   {
     key: "3",
     to: "/contact",
     linktext: "Contact",
-  } /* ,
+  }  ,
   {
     key: "4",
     to: "/dashboard",
