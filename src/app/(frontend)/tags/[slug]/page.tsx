@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import BlogPostList from "@/src/components/blogpostlist/blog-post-list";
+import BlogPostList from "@/src/components/blog-post-list/blog-post-list";
 import { sanityFetch } from "@/src/sanity/lib/live";
 import { getTag, getTaggedPosts } from "@/src/sanity/lib/queries";
 

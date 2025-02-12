@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/src/sanity/lib/live";
-import { Post } from "@/src/sanity/types";
+import { GetPostResult } from "@/src/sanity/types";
 
 import HeroImage from "../hero-image/hero-image";
 import LinkButton from "../link-button/link-button";
@@ -25,12 +25,12 @@ const BlogPostList = async ({ query, params }: BlogPostListProps) => {
     slug,
   } = posts[0];
 
-  const renderedPosts = posts.map((post: Post, i: number) => {
+  const renderedPosts = posts.map((post: GetPostResult, i: number) => {
     if (i === 0) {
       return;
     } else {
       return (
-        <div key={post._id}>
+        <div key={post?._id}>
           <BlogPostCard data={post} />
         </div>
       );
