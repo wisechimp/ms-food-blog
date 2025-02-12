@@ -2,12 +2,16 @@ import Link from "next/link";
 
 import { Chip } from "@heroui/react";
 
-import { Tag } from "@/src/sanity/types";
-
 import * as styles from "./tagsBannerBox.module.css";
 
+type TagBannerData = {
+  _id: string;
+  title: string | null;
+  slug: string | null;
+};
+
 type SummaryContentBannerProps = {
-  tags: Array<Tag>;
+  tags: TagBannerData[];
 };
 
 const SummaryContentBanner = ({ tags }: SummaryContentBannerProps) => {
